@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+
+import ResponsiveAppBar from './components/ResponsiveAppBar'
+
+import Home from './pages/Home'
+import Docs from './pages/Docs'
+import Contact from './pages/Contact'
+import { Route, Routes } from 'react-router-dom';
+import Apis from './pages/Apis';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <ResponsiveAppBar />
+      </div>
+      <Routes>
+        <Route exact path="/" element={< Home />} />
+        <Route exact path="/docs" element={< Docs />} />
+        <Route exact path="/apis" element={<Apis />} />
+        <Route exact path="/contact" element={< Contact />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+

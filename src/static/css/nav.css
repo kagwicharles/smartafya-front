@@ -1,0 +1,10 @@
+
+.nav-item{
+   color: black;
+   font-size: '100px';
+}
+
+.nav-link :hover{
+   border-bottom: 1px solid blue;
+   font-size: 100px;
+}

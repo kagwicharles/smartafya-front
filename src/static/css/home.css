@@ -1,0 +1,16 @@
+.home-avatar {
+    height: 300px;
+    width: 300px;
+}
+
+.home-cont {
+    height: calc(100vh - 60px);
+}
+
+.home-bg {
+    margin-top: -4px;
+    background-image: url('../img/doc-bot.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
