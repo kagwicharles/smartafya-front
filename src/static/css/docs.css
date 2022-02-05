@@ -1,5 +1,5 @@
 .api-cont {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 50px);
 }
 
 .title-content {
@@ -7,6 +7,6 @@
 }
 
 .scroll-effect {
-    max-height: calc(100vh - 60px);
+    max-height: calc(100vh - 70px);
     overflow: auto;
 }

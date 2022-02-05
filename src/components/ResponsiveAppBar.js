@@ -1,4 +1,3 @@
-import '../static/css/nav.css'
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,15 +7,14 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
-import { borderBottom } from '@mui/system';
+import { Link } from '@mui/material'
+import Ripple from 'react-ripples'
+
+import '../static/css/nav.css'
 
 const pages = ['Home', 'APIs', 'Pricing', 'Contact Us'];
-const settings = ['Profile', 'Account', 'Home', 'Logout'];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,12 +36,15 @@ const ResponsiveAppBar = () => {
     };
 
     const toolbarStyle = {
-        minHeight: '60px',
+        minHeight: '50px',
     };
 
     return (
         <div>
-            <AppBar position="fixed" elevation={2} style={{ backgroundColor: '#fff' }}>
+            <AppBar position="fixed"
+                elevation={1}
+                color='transparent'
+                style={{ backgroundImage: 'linear-gradient(to right, #fff, #E2F1D5)' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters className='container' style={toolbarStyle}>
                         <Typography
@@ -52,7 +53,7 @@ const ResponsiveAppBar = () => {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            <Link to='/' className='nav-link text-black'>
+                            <Link href='/' underline='none' className='nav-link text-black'>
                                 Smart Afya
                             </Link>
                         </Typography>
@@ -101,47 +102,38 @@ const ResponsiveAppBar = () => {
                         >
                             Smart Afya
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', marginRight: '100px' } }} justifyContent="flex-end">
-                            <Link to='/' className='nav-link text-black'>Home</Link>
-                            <Link to='/docs' className='nav-link text-black'>Docs</Link>
-                            <Link to='/apis' className='nav-link text-black'>APIs</Link>
-                            <Link to='/contact' className='nav-link text-black'>Contact Us</Link>
+                        <Box sx={{
+                            flexGrow: 1,
+                            display: {
+                                xs: 'none',
+                                md: 'flex',
+                                marginRight: '100px'
+                            }
+                        }}
+                            justifyContent="flex-end">
+                            <Link href='/'
+                                className='ripple nav-link text-black'
+                                underline='none'>Home</Link>
+                            <Link href='/docs' className='ripple nav-link text-black' underline='none'>Documentation</Link>
+                            <Link href='/apis' className='ripple nav-link text-black' underline='none'>Applications</Link>
+                            <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
                         </Box>
 
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                sx={{ mt: '45px' }}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
-                            >
-                                {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
+                        <Box
+                            sx={{
+                                flexFlow: 1,
+                                display: 'flex',
+                                justifyContent: 'space-around'
+                            }}>
+                            <Button variant='contained' color='success' className='m-1'>Login</Button>
+                            <Button variant='outlined' color='secondary' className='m-1'>Sign Up</Button>
                         </Box>
+
                     </Toolbar>
                 </Container>
-            </AppBar>
+            </AppBar >
             <Toolbar />
-        </div>
+        </div >
     );
 };
 export default ResponsiveAppBar;

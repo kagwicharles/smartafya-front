@@ -1,22 +1,29 @@
-import { Grid, Button, Stack, Box, Typography } from '@mui/material';
-import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import '../static/css/home.css'
+import { Grid, Button, Stack, Box, Typography, Slide } from '@mui/material';
 
+import '../static/css/home.css'
+import MediLogo from '../static/img/medical1.svg'
+import ImageBlob from '../static/img/blob.svg'
+import RightBlob from '../static/img/blob2.svg'
 
 export default function Home() {
     return (
         <div className='home-bg'>
-            <MDBContainer fluid className='home-cont container'>
-                <MDBRow className='align-items-center row-cont home-cont'>
-                    <MDBCol size='md'>
-                        <Stack spacing={2}>
+            <Slide direction='up' in='true' timeout={1000}>
+                <Grid container className=' container align-items-center'>
+                    <Grid item xs={5} size='md'>
+                        <Stack spacing={2} className='home-cont' justifyContent='center'
+                            style={{
+                                backgroundImage: `url(${ImageBlob})`,
+                                backgroundPosition: 'left top',
+                                backgroundRepeat: 'no-repeat',
+                            }}>
                             <Typography variant='h4' align='left'>
                                 Accurate results guaranteed <br /> on x-ray scans
                             </Typography>
-                            <Typography align='left' sx={{ width: '50%' }}>
+                            <Typography align='left'>
                                 Our APIs are designed to scale and are available on request by client applications.
                                 Smart Afya API can be used to predict Malaria, Pneumonia and Covid19 from chest x-rays.
-                                All you need to do is send an x-ray image to our service and it does the work for you.
+                                All you need to do is send an x-ray image to our service.
                             </Typography>
                             <Box display='flex'>
                                 <Button variant="contained" color='success'>
@@ -27,9 +34,19 @@ export default function Home() {
                                 </Button>
                             </Box>
                         </Stack>
-                    </MDBCol>
-                </MDBRow>
-            </MDBContainer>
+                    </Grid>
+                    <Grid item xs={7} size='md'
+                        style={{
+                            backgroundImage: `url(${RightBlob})`,
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover'
+                        }}>
+                        <img className='home-cont'
+                            src={MediLogo} alt="Medi Logo" />
+                    </Grid>
+                </Grid>
+            </Slide>
         </div>
     )
 }

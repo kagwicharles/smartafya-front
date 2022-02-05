@@ -1,20 +1,20 @@
 import { Grid, Typography, Box } from '@mui/material'
 import { Icon } from '@iconify/react'
-import { Link } from '@mui/material'
+import { Link, Fade } from '@mui/material'
 
 import '../static/css/docs.css'
 
 export default function Docs() {
     return (
         <div className='container'>
-            <Grid container className="flex-section api-cont">
+            <Grid container className="flex-section">
                 <Grid
                     item
                     xs={4}
                     className={"flex-col-scroll"}
                 >
-                    <Box sx={{ display: 'flex', paddingTop: '30px', alignItems: 'center' }}>
-                        <Icon width='40' height='40' color="#1976D2" icon="carbon:document" />
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Icon width='40' height='40' color="#353c47" icon="bi:stack" />
                         <Typography variant='h5'
                             className='title-content '
                             align='left'
@@ -49,80 +49,93 @@ export default function Docs() {
                 >
 
                     <Box className='scroll-effect' sx={{ width: '60%' }} style={{ paddingTop: '40px' }}>
-                        <Typography id='get-started' variant='h4' align='left' className='title-content'>
-                            Get Started
-                        </Typography>
 
-                        <p style={{ textAlign: 'left', paddingTop: '20px' }}>
-                            The Smart Afya API provides programmatic access to predict
-                            Chest x-ray scans. Depending on the request you make, the api
-                            predicts one of the following cases: Malaria, Pneumonia and Covid19.
-                        </p>
+                        <Fade in={true} timeout={1000}>
+                            <Box>
+                                <Typography id='get-started' variant='h4' align='left' className='title-content'>
+                                    Get Started
+                                </Typography>
+                                <p style={{ textAlign: 'left', paddingTop: '20px' }}>
+                                    The Smart Afya API provides programmatic access to predict
+                                    Chest x-ray scans. Depending on the request you make, the api
+                                    predicts one of the following cases: Malaria, Pneumonia and Covid19.
+                                </p>
 
-                        <p style={{ textAlign: 'left', marginTop: '20px' }}>To use this API, you need an API key. Get an API key <Link href='#' underline='hover'>here</Link>.</p>
+                                <p style={{ textAlign: 'left', marginTop: '20px' }}>To use this API, you need an API key. Get an API key <Link href='#' underline='hover'>here</Link>.</p>
+                            </Box>
+                        </Fade>
 
-                        <Typography id='predict-xray' variant='h4' align='left' className='title-content'
-                            style={{ marginTop: '40px' }}
-                        >
-                            Predict x-ray
-                        </Typography>
+                        <Fade in={true} timeout={1000}>
+                            <Box>
+                                <Typography id='predict-xray' variant='h4' align='left' className='title-content'
+                                    style={{ marginTop: '40px' }}
+                                >
+                                    Predict x-ray
+                                </Typography>
 
-                        <p style={{ textAlign: 'left', marginTop: '20px' }}>
-                            To predict an x-ray image make a POST call to the following url :
-                            http://api.smartafya.com/predict
-                        </p>
+                                <p style={{ textAlign: 'left', marginTop: '20px' }}>
+                                    To predict an x-ray image make a POST call to the following url :
+                                    http://api.smartafya.com/predict
+                                </p>
 
-                        <Typography align='left' color='primary'>QUERY PARAMETERS</Typography>
+                                <Typography align='left' color='primary'>QUERY PARAMETERS</Typography>
 
-                        <table className='table'>
-                            <thead>
-                                <tr>
-                                    <th>Field</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>secret_key</td>
-                                    <td>String</td>
-                                    <td>Your API key</td>
-                                </tr>
-                                <tr>
-                                    <td>disease</td>
-                                    <td>String</td>
-                                    <td>"malaria", "pneumonia" or "covid19"</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                <table className='table'>
+                                    <thead>
+                                        <tr>
+                                            <th>Field</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>secret_key</td>
+                                            <td>String</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>disease</td>
+                                            <td>String</td>
+                                            <td>"malaria", "pneumonia" or "covid19"</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                        <Typography id='error' variant='h4' align='left' className='title-content'
-                            style={{ marginTop: '40px' }}
-                        >
-                            Errors
-                        </Typography>
+                            </Box>
+                        </Fade>
 
-                        <p style={{ textAlign: 'left', marginTop: '20px' }}>Smart Afya can produce the following errors.</p>
+                        <Fade in={true} timeout={1000}>
+                            <Box>
+                                <Typography id='error' variant='h4' align='left' className='title-content'
+                                    style={{ marginTop: '40px' }}
+                                >
+                                    Errors
+                                </Typography>
 
-                        <table className='table'>
-                            <thead>
-                                <tr>
-                                    <th>Error code</th>
-                                    <th>Meaning</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>X000</td>
-                                    <td>Some parameters are missing</td>
-                                </tr>
-                                <tr>
-                                    <td>X001</td>
-                                    <td>Security key is invalid</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                <p style={{ textAlign: 'left', marginTop: '20px' }}>Smart Afya can produce the following errors.</p>
 
+                                <table className='table'>
+                                    <thead>
+                                        <tr>
+                                            <th>Error code</th>
+                                            <th>Meaning</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>X000</td>
+                                            <td>Some parameters are missing</td>
+                                        </tr>
+                                        <tr>
+                                            <td>X001</td>
+                                            <td>Security key is invalid</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </Box>
+                        </Fade>
                     </Box>
                 </Grid>
             </Grid >

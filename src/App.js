@@ -5,6 +5,8 @@ import ResponsiveAppBar from './components/ResponsiveAppBar'
 import Home from './pages/Home'
 import Docs from './pages/Docs'
 import Contact from './pages/Contact'
+import Footer from './components/Footer'
+
 import { Route, Routes } from 'react-router-dom';
 import Apis from './pages/Apis';
 
@@ -20,6 +22,7 @@ function App() {
         <Route exact path="/apis" element={<Apis />} />
         <Route exact path="/contact" element={< Contact />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
