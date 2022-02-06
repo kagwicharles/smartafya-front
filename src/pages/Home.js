@@ -7,11 +7,11 @@ import RightBlob from '../static/img/blob2.svg'
 
 export default function Home() {
     return (
-        <div className='home-bg'>
+        <div className='fill-height'>
             <Slide direction='up' in='true' timeout={1000}>
                 <Grid container className=' container align-items-center'>
                     <Grid item xs={5} size='md'>
-                        <Stack spacing={2} className='home-cont' justifyContent='center'
+                        <Stack spacing={2} className='fill-heght' justifyContent='center'
                             style={{
                                 backgroundImage: `url(${ImageBlob})`,
                                 backgroundPosition: 'left top',
@@ -42,7 +42,7 @@ export default function Home() {
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'cover'
                         }}>
-                        <img className='home-cont'
+                        <img className='fill-height medi-img'
                             src={MediLogo} alt="Medi Logo" />
                     </Grid>
                 </Grid>

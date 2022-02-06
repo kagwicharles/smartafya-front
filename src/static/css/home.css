@@ -3,6 +3,6 @@
     width: 300px;
 }
 
-.home-cont {
+.fill-height {
     height: calc(100vh - 70px);
 }

@@ -1,11 +1,13 @@
 function Footer() {
     return (
         <div
-            className="text-center p-1 bg-light"
+            className="text-center p-1"
         >
             © 2022 Copyright:
             <a href="https://kagwicharles.github.io/"
-            >Kagwi Charles</a>
+                target='_blank'
+                style={{ textDecoration: 'none' }}
+            >Charles Kagwi</a>
         </div>
     )
 }
