@@ -8,7 +8,8 @@ import Contact from './pages/Contact'
 import Footer from './components/Footer'
 
 import { Route, Routes } from 'react-router-dom';
-import Apis from './pages/Apis';
+import Applications from './pages/Applications';
+import CreateApplication from './components/CreateApplication';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={< Home />} />
         <Route exact path="/docs" element={< Docs />} />
-        <Route exact path="/apis" element={<Apis />} />
+        <Route exact path="/applications" element={<Applications />} />
         <Route exact path="/contact" element={< Contact />} />
+        <Route exact path="/applications/create" element={<CreateApplication />} />
       </Routes>
       <Footer />
     </div>

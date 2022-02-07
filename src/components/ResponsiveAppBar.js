@@ -117,7 +117,7 @@ const ResponsiveAppBar = () => {
                                 className='ripple nav-link text-black'
                                 underline='none'>Home</Link>
                             <Link href='/docs' className='ripple nav-link text-black' underline='none'>Documentation</Link>
-                            <Link href='/apis' className='ripple nav-link text-black' underline='none'>Applications</Link>
+                            <Link href='/applications' className='ripple nav-link text-black' underline='none'>Applications</Link>
                             <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
                         </Box>
 

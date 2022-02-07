@@ -30,7 +30,7 @@ export default function Contact() {
                                 cursorColor="#3F3D56"
                                 multiText={[
                                     'Hello Buddies,',
-                                    'We love hearing from you!',
+                                    'We love hearing from you...',
                                 ]}
                                 loop={true}
                                 nextTextDelay={2000}
@@ -68,17 +68,6 @@ export default function Contact() {
                         <br />
                         <br />
 
-                        <TextField
-                            id="outlined-basic"
-                            placeholder="Enter Subject"
-                            label="Subject"
-                            variant="outlined"
-                            required
-                            fullWidth
-                        />
-
-                        <br />
-                        <br />
                         <TextField
                             id="full-width-text-field"
                             label="Message"
