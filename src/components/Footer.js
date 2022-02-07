@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <div
-            className="text-center p-1"
+            className="text-center p-1 fixed-bottom"
         >
             © 2022 Copyright:
             <a href="https://kagwicharles.github.io/"
