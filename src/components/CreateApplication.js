@@ -40,7 +40,9 @@ export default function CreateApplication() {
                     <br />
 
                     <Box sx={{ display: 'flex' }}>
-                        <Button variant="contained">Save</Button>
+                        <Button variant="contained"
+                            type="submit">
+                            Save</Button>
                         <Button variant="contained"
                             sx={{ marginLeft: "10px" }}
                             color="inherit"

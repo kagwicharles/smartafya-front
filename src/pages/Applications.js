@@ -28,16 +28,26 @@ export default function Apis() {
                     href="/applications/create">
                     New Application</Button>
             </Box>
-            <p align="left" className="mt-4 mb-4">
+            <p align="left" className="mt-2 mb-4">
                 An application will help integrate your application to our API by generating an api key.</p>
-            <table class="table table-striped w-50">
+            <table className="table table-striped table-sm w-75">
                 <thead>
                     <tr>
+                        <th scope="#">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Api key</th>
+                        <th scope="col">Authorized</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>App-1</td>
+                        <td>somerandomkey</td>
+                        <td>No</td>
+                        <td><Button endIcon={<Icon icon="ep:delete" />}>Delete</Button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

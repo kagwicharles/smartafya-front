@@ -42,7 +42,7 @@ export default function Contact() {
                 <Grid item xs={4} sm='md'>
                     <Typography variant="h4" style={{ marginTop: '50px' }}
                     >Get In Touch</Typography>
-                    <form className="contact-form pt-2">
+                    <form className="contact-form mt-4 d-flex flex-column mb-3">
                         <TextField
                             id="outlined-basic"
                             placeholder="Enter your name"
@@ -54,7 +54,6 @@ export default function Contact() {
                         />
 
                         <br />
-                        <br />
 
                         <TextField
                             id="outlined-basic"
@@ -65,7 +64,7 @@ export default function Contact() {
                             type="email"
                             fullWidth
                         />
-                        <br />
+
                         <br />
 
                         <TextField
@@ -79,9 +78,9 @@ export default function Contact() {
                             type="text"
                             fullWidth
                         />
+
                         <br />
-                        <br />
-                        <br />
+
                         <Button type="submit" variant="contained">
                             Send Message
                         </Button>
