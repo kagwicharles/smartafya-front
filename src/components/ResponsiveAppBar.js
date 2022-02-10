@@ -10,11 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from '@mui/material'
-import Ripple from 'react-ripples'
-import { useLocation } from "react-router-dom";
 
-
-import '../static/css/nav.css'
+import '../static/css/nav.css';
 
 const pages = ['Home', 'APIs', 'Pricing', 'Contact Us'];
 
@@ -116,7 +113,10 @@ const ResponsiveAppBar = () => {
                             <Link href='/'
                                 className='ripple nav-link text-black'
                                 underline='none'>Home</Link>
-                            <Link href='/docs' className='ripple nav-link text-black' underline='none'>Documentation</Link>
+                            <Link href='/docs'
+                                className='ripple nav-link text-black'
+                                underline='none'>
+                                Documentation</Link>
                             <Link href='/applications' className='ripple nav-link text-black' underline='none'>Applications</Link>
                             <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
                         </Box>
@@ -127,8 +127,25 @@ const ResponsiveAppBar = () => {
                                 display: 'flex',
                                 justifyContent: 'space-around'
                             }}>
-                            <Button variant='contained' color='success' className='m-1'>Login</Button>
-                            <Button variant='outlined' color='secondary' className='m-1'>Sign Up</Button>
+                            <Button
+                                variant='contained'
+                                color='success'
+                                href="/login"
+                                className='m-1'
+                                sx={{
+                                    ':hover': {
+                                        color: '#fff',
+                                    }
+                                }}
+                                disableElevation={true}
+                            >
+                                Login</Button>
+                            <Button
+                                variant='outlined'
+                                color='secondary'
+                                className='m-1'
+                                href="/register">
+                                Sign Up</Button>
                         </Box>
 
                     </Toolbar>

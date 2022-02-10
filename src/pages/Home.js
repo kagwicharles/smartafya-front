@@ -26,10 +26,22 @@ export default function Home() {
                                 All you need to do is send an x-ray image to our service.
                             </Typography>
                             <Box display='flex'>
-                                <Button variant="contained" color='success'>
+                                <Button
+                                    variant="contained"
+                                    color='success'
+                                    disableElevation={true}>
                                     Live Demo
                                 </Button>
-                                <Button style={{ marginLeft: '30px' }} variant="contained">
+                                <Button
+                                    sx={{
+                                        marginLeft: '30px',
+                                        ':hover': {
+                                            color: "#fff"
+                                        }
+                                    }}
+                                    variant="contained"
+                                    href="/applications"
+                                    disableElevation={true}>
                                     Get Started
                                 </Button>
                             </Box>

@@ -10,7 +10,7 @@ export default function CreateApplication() {
                     justifyContent: 'center',
                     width: "40%"
                 }}>
-                <Typography variant="h6" alignSelf="start">
+                <Typography variant="h5" alignSelf="start">
                     Create an application</Typography>
                 <form className="mt-4">
                     <TextField
@@ -41,12 +41,14 @@ export default function CreateApplication() {
 
                     <Box sx={{ display: 'flex' }}>
                         <Button variant="contained"
-                            type="submit">
+                            type="submit"
+                            disableElevation={true}>
                             Save</Button>
                         <Button variant="contained"
                             sx={{ marginLeft: "10px" }}
                             color="inherit"
-                            href="/applications">
+                            href="/applications"
+                            disableElevation={true}>
                             cancel</Button>
                     </Box>
                 </form>

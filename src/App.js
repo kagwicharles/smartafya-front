@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom';
 import Applications from './pages/Applications';
 import CreateApplication from './components/CreateApplication';
+import Login from './components/Login'
+import Register from './components/Register'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route exact path="/applications" element={<Applications />} />
         <Route exact path="/contact" element={< Contact />} />
         <Route exact path="/applications/create" element={<CreateApplication />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </div>

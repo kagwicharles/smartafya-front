@@ -40,8 +40,9 @@ export default function Contact() {
                     </Fade>
                 </Grid>
                 <Grid item xs={4} sm='md'>
-                    <Typography variant="h4" style={{ marginTop: '50px' }}
-                    >Get In Touch</Typography>
+                    <Typography variant="h5"
+                        style={{ marginTop: '50px' }}
+                        align="left">Get In Touch</Typography>
                     <form className="contact-form mt-4 d-flex flex-column mb-3">
                         <TextField
                             id="outlined-basic"
@@ -81,7 +82,10 @@ export default function Contact() {
 
                         <br />
 
-                        <Button type="submit" variant="contained">
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            disableElevation={true}>
                             Send Message
                         </Button>
                     </form>

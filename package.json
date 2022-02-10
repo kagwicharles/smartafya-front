@@ -14,11 +14,14 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
+    "css-ripple-effect": "^1.0.5",
+    "firebase": "^9.6.6",
     "mdb-react-ui-kit": "^2.3.0",
     "react": "^17.0.2",
     "react-blur": "^1.1.1",
     "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.2",
+    "react-firebase-hooks": "^5.0.2",
     "react-icons": "^4.3.1",
     "react-ripples": "^2.2.1",
     "react-router-dom": "^6.2.1",
@@ -26,6 +29,7 @@
     "react-tiny-popover": "^7.0.1",
     "react-typewriter-effect": "^1.1.0",
     "react-typing-effect": "^2.0.5",
+    "typeface-roboto": "^1.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

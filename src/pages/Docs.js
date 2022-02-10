@@ -61,7 +61,7 @@ export default function Docs() {
                                     predicts one of the following cases: Malaria, Pneumonia and Covid19.
                                 </p>
 
-                                <p style={{ textAlign: 'left', marginTop: '20px' }}>To use this API, you need an API key. Get an API key <Link href='#' underline='hover'>here</Link>.</p>
+                                <p style={{ textAlign: 'left', marginTop: '20px' }}>To use this API, you need an API key. Get an API key <Link href='/applications' underline='hover'>here</Link>.</p>
                             </Box>
                         </Fade>
 
