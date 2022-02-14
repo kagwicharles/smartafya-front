@@ -9,3 +9,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "RobotoRegular";
+  src: local("RobotoRegular"),
+    url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "RobotoBlack";
+  src: local("RobotoBlack"),
+    url("./fonts/Roboto/Roboto-Black.ttf") format("truetype");
+  font-weight: normal;
+}

@@ -1,8 +1,11 @@
 import { Box, TextField, Button, Typography } from "@mui/material"
 
+import "../static/css/create_application.css"
+require("@fontsource/open-sans")
+
 export default function CreateApplication() {
     return (
-        <div className="container d-flex justify-content-center">
+        <div className="container d-flex justify-content-center app-cont">
             <Box className="fill-height"
                 sx={{
                     display: 'flex',

@@ -6,7 +6,7 @@ import '../static/css/docs.css'
 
 export default function Docs() {
     return (
-        <div className='container'>
+        <div className='container font-face-roboto'>
             <Grid container className="flex-section">
                 <Grid
                     item
@@ -48,7 +48,7 @@ export default function Docs() {
                     className={"flex-col-scroll"}
                 >
 
-                    <Box className='scroll-effect' sx={{ width: '60%' }} style={{ paddingTop: '40px' }}>
+                    <Box className='scroll-effect pb-2' sx={{ width: '60%' }} style={{ paddingTop: '40px' }}>
 
                         <Fade in={true} timeout={1000}>
                             <Box>

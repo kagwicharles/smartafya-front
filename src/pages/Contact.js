@@ -1,46 +1,24 @@
-import ContactBg from '../static/img/contact.jpg'
+import ContactBg from '../static/img/envelope.svg'
 
-import { Button, TextField, Grid, Fade, Box, Typography } from "@mui/material"
-import TypeWriterEffect from 'react-typewriter-effect'
+import { Button, TextField, Grid, Stack, Box, Typography } from "@mui/material"
 
 export default function Contact() {
 
     return (
-        <div className="container">
-            <Grid container>
-                <Grid item xs={8} sm='md'>
-                    <Fade in={true} timeout={1000}>
-                        <Box className='fill-height p-4'
-                            display='flex'
-                            justifyContent='center'
-                            style={{
-                                backgroundImage: `url(${ContactBg})`,
-                                backgroundPosition: 'center',
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'contain',
-                            }}>
-
-                            <TypeWriterEffect
-                                textStyle={{
-                                    color: '#3F3D56',
-                                    fontWeight: 500,
-                                    fontSize: '1.5em',
-                                }}
-                                startDelay={2000}
-                                cursorColor="#3F3D56"
-                                multiText={[
-                                    'Hello Buddies,',
-                                    'We love hearing from you...',
-                                ]}
-                                loop={true}
-                                nextTextDelay={2000}
-                                typeSpeed={50}
-                            />
-                        </Box>
-                    </Fade>
+        <div className="container font-face-roboto">
+            <Grid
+                sx={{
+                    display: "flex",
+                    flexDirection: "row"
+                }}>
+                <Grid item xs={8} className='fill-height p-4'
+                    display='flex'
+                    justifyContent='center'
+                >
+                    <img src={ContactBg} alt="contact us" />
                 </Grid>
-                <Grid item xs={4} sm='md'>
-                    <Typography variant="h5"
+                <Grid item xs={4}>
+                    <Typography variant="h4"
                         style={{ marginTop: '50px' }}
                         align="left">Get In Touch</Typography>
                     <form className="contact-form mt-4 d-flex flex-column mb-3">

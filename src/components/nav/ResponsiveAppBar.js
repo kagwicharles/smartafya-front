@@ -1,17 +1,17 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from '@mui/material'
+import {
+    Link, Grid,
+    AppBar, Box,
+    Toolbar, IconButton,
+    Typography, Menu,
+    Container, MenuItem, Fade
+} from '@mui/material'
 
-import '../static/css/nav.css';
+import NavUser from './NavUser';
+
+import '../../static/css/nav.css';
+require("@fontsource/roboto");
 
 const pages = ['Home', 'APIs', 'Pricing', 'Contact Us'];
 
@@ -43,9 +43,12 @@ const ResponsiveAppBar = () => {
             <AppBar position="fixed"
                 elevation={1}
                 color='transparent'
+                className="app-bar"
                 style={{ backgroundImage: 'linear-gradient(to right, #fff, #E2F1D5)' }}>
                 <Container maxWidth="xl">
-                    <Toolbar disableGutters className='container' style={toolbarStyle}>
+                    <Toolbar disableGutters
+                        className='container'
+                        style={toolbarStyle}>
                         <Typography
                             variant="h6"
                             noWrap
@@ -101,6 +104,7 @@ const ResponsiveAppBar = () => {
                         >
                             Smart Afya
                         </Typography>
+
                         <Box sx={{
                             flexGrow: 1,
                             display: {
@@ -121,32 +125,15 @@ const ResponsiveAppBar = () => {
                             <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
                         </Box>
 
-                        <Box
-                            sx={{
-                                flexFlow: 1,
-                                display: 'flex',
-                                justifyContent: 'space-around'
-                            }}>
-                            <Button
-                                variant='contained'
-                                color='success'
-                                href="/login"
-                                className='m-1'
+                            <Grid
+                                xs={12} sm={2}
                                 sx={{
-                                    ':hover': {
-                                        color: '#fff',
-                                    }
-                                }}
-                                disableElevation={true}
-                            >
-                                Login</Button>
-                            <Button
-                                variant='outlined'
-                                color='secondary'
-                                className='m-1'
-                                href="/register">
-                                Sign Up</Button>
-                        </Box>
+                                    display: "flex",
+                                    justifyContent: "flex-end",
+                                    flexDirection: "row"
+                                }}>
+                                <NavUser />
+                            </Grid>
 
                     </Toolbar>
                 </Container>

@@ -1,3 +1,8 @@
+.app-bar {
+    font-family: "roboto";
+    font-weight: bold;
+}
+
 .ripple:hover {
     background-color: #E0F1D3;
 }

@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
 
+import App from './App';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
-import "typeface-roboto";
-
-import App from './App';
+import "./fonts/Roboto/Roboto-Black.ttf"
 
 ReactDOM.render(
   <React.StrictMode>

@@ -4,18 +4,21 @@ import homeFill from '@iconify/icons-eva/home-fill';
 import personFill from '@iconify/icons-eva/person-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
 import { Link as RouterLink } from 'react-router-dom';
-// material
+
 import { alpha } from '@mui/material/styles';
 import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from '@mui/material';
-// components
-import account from '../mocks/account';
-import MenuPopover from '../components/MenuPopOver';
+
+import MenuPopover from './MenuPopover';
+import account from '../../mocks/account';
+import { logout } from '../../authentication/firebase'
+
+// ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
     {
         label: 'Home',
         icon: homeFill,
-        linkTo: '#'
+        linkTo: '/'
     },
     {
         label: 'Profile',
@@ -29,7 +32,6 @@ const MENU_OPTIONS = [
     }
 ];
 
-// ----------------------------------------------------------------------
 
 export default function AccountPopover() {
     const anchorRef = useRef(null);
@@ -41,6 +43,10 @@ export default function AccountPopover() {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleLogout = () => {
+        logout()
+    }
 
     return (
         <>
@@ -64,7 +70,8 @@ export default function AccountPopover() {
                     })
                 }}
             >
-                <Avatar src={account.photoURL} alt="photoURL" />
+                <Avatar sx={{ backgroundColor: "#2E7D32" }}
+                    src={account.photoURL} alt="photoURL" />
             </IconButton>
 
             <MenuPopover
@@ -107,7 +114,7 @@ export default function AccountPopover() {
                 ))}
 
                 <Box sx={{ p: 2, pt: 1.5 }}>
-                    <Button href="/login" fullWidth color="inherit" variant="outlined">
+                    <Button href="/login" onClick={handleLogout} fullWidth color="inherit" variant="outlined">
                         Logout
                     </Button>
                 </Box>
