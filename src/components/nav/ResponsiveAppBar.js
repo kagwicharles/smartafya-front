@@ -5,7 +5,7 @@ import {
     AppBar, Box,
     Toolbar, IconButton,
     Typography, Menu,
-    Container, MenuItem, Fade
+    Container, MenuItem, Button
 } from '@mui/material'
 
 import NavUser from './NavUser';
@@ -43,7 +43,6 @@ const ResponsiveAppBar = () => {
             <AppBar position="fixed"
                 elevation={1}
                 color='transparent'
-                className="app-bar"
                 style={{ backgroundImage: 'linear-gradient(to right, #fff, #E2F1D5)' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters
@@ -110,7 +109,7 @@ const ResponsiveAppBar = () => {
                             display: {
                                 xs: 'none',
                                 md: 'flex',
-                                marginRight: '100px'
+                                marginRight: '100px',
                             }
                         }}
                             justifyContent="flex-end">
@@ -125,15 +124,15 @@ const ResponsiveAppBar = () => {
                             <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
                         </Box>
 
-                            <Grid
-                                xs={12} sm={2}
-                                sx={{
-                                    display: "flex",
-                                    justifyContent: "flex-end",
-                                    flexDirection: "row"
-                                }}>
-                                <NavUser />
-                            </Grid>
+                        <Grid
+                            xs={12} sm={2}
+                            sx={{
+                                display: "flex",
+                                justifyContent: "flex-end",
+                                flexDirection: "row"
+                            }}>
+                            <NavUser />
+                        </Grid>
 
                     </Toolbar>
                 </Container>

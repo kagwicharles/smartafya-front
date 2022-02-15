@@ -10,7 +10,9 @@ import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from '
 
 import MenuPopover from './MenuPopover';
 import account from '../../mocks/account';
+import userAvatar from '../../mocks/img/user.png'
 import { logout } from '../../authentication/firebase'
+import { useUserAuth } from "../../authentication/AuthProvider";
 
 // ----------------------------------------------------------------------
 
@@ -36,6 +38,8 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
     const anchorRef = useRef(null);
     const [open, setOpen] = useState(false);
+
+    const { user } = useUserAuth();
 
     const handleOpen = () => {
         setOpen(true);
@@ -70,8 +74,8 @@ export default function AccountPopover() {
                     })
                 }}
             >
-                <Avatar sx={{ backgroundColor: "#2E7D32" }}
-                    src={account.photoURL} alt="photoURL" />
+                <Avatar
+                    src={userAvatar} alt="photoURL" />
             </IconButton>
 
             <MenuPopover
@@ -85,7 +89,7 @@ export default function AccountPopover() {
                         {account.displayName}
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-                        {account.email}
+                        {user.email}
                     </Typography>
                 </Box>
 

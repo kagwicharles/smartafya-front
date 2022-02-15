@@ -2,18 +2,22 @@ import * as React from 'react';
 import { Button, TextField, Checkbox, Link, Box, Grid, Typography, Container } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Icon } from '@iconify/react'
+import { useNavigate } from 'react-router-dom';
 
 import { logInWithEmailAndPassword, auth } from '../../authentication/firebase'
 
 const theme = createTheme();
 
 export default function Login() {
+    const navigate = useNavigate()
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        logInWithEmailAndPassword(data.get('email'), data.get('password'))
+        logInWithEmailAndPassword(data.get('email'), data.get('password')).then(() => {
+            navigate("/applications")
+        })
         console.log({
             email: data.get('email'),
             password: data.get('password'),
