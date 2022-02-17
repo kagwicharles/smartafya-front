@@ -10,7 +10,6 @@ import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from '
 
 import MenuPopover from './MenuPopover';
 import account from '../../mocks/account';
-import userAvatar from '../../mocks/img/user.png'
 import { logout } from '../../authentication/firebase'
 import { useUserAuth } from "../../authentication/AuthProvider";
 
@@ -40,6 +39,13 @@ export default function AccountPopover() {
     const [open, setOpen] = useState(false);
 
     const { user } = useUserAuth();
+
+    let avatarChar = ""
+    try {
+        avatarChar = user.email.charAt(0).toUpperCase()
+    } catch (err) {
+        console.log(err)
+    }
 
     const handleOpen = () => {
         setOpen(true);
@@ -74,8 +80,8 @@ export default function AccountPopover() {
                     })
                 }}
             >
-                <Avatar
-                    src={userAvatar} alt="photoURL" />
+                <Avatar className="bg-success"
+                    alt="photoURL">{avatarChar}</Avatar>
             </IconButton>
 
             <MenuPopover

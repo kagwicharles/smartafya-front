@@ -5,10 +5,11 @@ import {
     AppBar, Box,
     Toolbar, IconButton,
     Typography, Menu,
-    Container, MenuItem, Button
+    Container, MenuItem, Fade, Grow
 } from '@mui/material'
 
-import NavUser from './NavUser';
+import { LoggedIn, LoggedOut } from './NavUser';
+import { useUserAuth } from "../../authentication/AuthProvider";
 
 import '../../static/css/nav.css';
 require("@fontsource/roboto");
@@ -18,6 +19,7 @@ const pages = ['Home', 'APIs', 'Pricing', 'Contact Us'];
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const { user } = useUserAuth();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -40,8 +42,8 @@ const ResponsiveAppBar = () => {
 
     return (
         <div>
-            <AppBar position="fixed"
-                elevation={1}
+            <AppBar position="fixed" className='font-face-roboto'
+                elevation={4}
                 color='transparent'
                 style={{ backgroundImage: 'linear-gradient(to right, #fff, #E2F1D5)' }}>
                 <Container maxWidth="xl">
@@ -104,36 +106,49 @@ const ResponsiveAppBar = () => {
                             Smart Afya
                         </Typography>
 
-                        <Box sx={{
-                            flexGrow: 1,
-                            display: {
-                                xs: 'none',
-                                md: 'flex',
-                                marginRight: '100px',
-                            }
-                        }}
-                            justifyContent="flex-end">
-                            <Link href='/'
-                                className='ripple nav-link text-black'
-                                underline='none'>Home</Link>
-                            <Link href='/docs'
-                                className='ripple nav-link text-black'
-                                underline='none'>
-                                Documentation</Link>
-                            <Link href='/applications' className='ripple nav-link text-black' underline='none'>Applications</Link>
-                            <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
-                        </Box>
-
+                        <Fade in={true} timeout={1}>
+                            <Box sx={{
+                                flexGrow: 1,
+                                display: {
+                                    xs: 'none',
+                                    md: 'flex',
+                                    marginRight: '100px',
+                                }
+                            }}
+                                justifyContent="flex-end">
+                                <Link href='/'
+                                    className='ripple nav-link text-black'
+                                    underline='none'>Home</Link>
+                                <Link href='/docs'
+                                    className='ripple nav-link text-black'
+                                    underline='none'>
+                                    Documentation</Link>
+                                <Link href='/applications' className='ripple nav-link text-black' underline='none'>Applications</Link>
+                                <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
+                            </Box>
+                        </Fade>
                         <Grid
-                            xs={12} sm={2}
+                            item xs={12} sm={2}
                             sx={{
                                 display: "flex",
                                 justifyContent: "flex-end",
                                 flexDirection: "row"
                             }}>
-                            <NavUser />
+                            {
+                                !user ?
+                                    <Fade in={true} timeout={10}>
+                                        <div>
+                                            <LoggedOut />
+                                        </div>
+                                    </Fade>
+                                    :
+                                    <Fade in={true} timeout={3000}>
+                                        <div>
+                                            <LoggedIn />
+                                        </div>
+                                    </Fade>
+                            }
                         </Grid>
-
                     </Toolbar>
                 </Container>
             </AppBar >

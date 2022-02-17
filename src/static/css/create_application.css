@@ -1,7 +1,3 @@
 .fill-height {
     height: calc(100vh - 70px);
 }
-
-.app-cont {
-    font-family: "Open Sans";
-}

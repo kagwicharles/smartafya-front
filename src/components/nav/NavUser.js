@@ -2,7 +2,7 @@ import { Box, Button, Grow, Slide } from "@mui/material"
 import { useUserAuth } from "../../authentication/AuthProvider";
 import AccountPopover from "../auth/AccountPopover"
 
-function LoggedOut() {
+const LoggedOut = () => {
     return (
         <Box>
             <Button
@@ -28,34 +28,12 @@ function LoggedOut() {
     )
 }
 
-function LoggedIn(props) {
+const LoggedIn = (props) => {
     return (
         <AccountPopover />
     )
 }
 
-export default function NavUser() {
-
-    const { user } = useUserAuth();
-    let isLoggedIn = false
-
-    if (user) {
-        isLoggedIn = true
-    }
-
-    try {
-        user.email.charAt(0).toUpperCase()
-    } catch (err) {
-        console.log(err)
-    }
-
-
-    return (
-        <div>
-            {user ?
-                <LoggedIn isLoggedIn={isLoggedIn} /> :
-                <LoggedOut isLoggedIn={isLoggedIn} />
-            }
-        </div>
-    )
+export {
+    LoggedOut, LoggedIn
 }
