@@ -1,3 +1,11 @@
+.ripple {
+    margin: 4px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
 .ripple:hover {
-    background-color: #E0F1D3;
+    background-color: #fafafa;
+    border-radius: 8px;
+    color: black !important;
 }

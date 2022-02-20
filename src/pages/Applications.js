@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react'
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from '../authentication/firebase'
-import { getApps, jsonData } from "../db/firebaseDb"
+import { getFirestore, getDocs, collection } from "firebase/firestore"
 
 import '../static/css/applications.css'
 
@@ -14,21 +14,57 @@ export default function Apis() {
 
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
+    const [apps, setApps] = useState([])
+    const db = getFirestore();
 
-    getApps()
-    const APP_DATA = jsonData.map(
-        (info, i) => {
+    useEffect(() => {
+        var jsonData = []
+        async function fetchMyApps() {
+            const userEmail = user.email
+            const querySnap = await getDocs(collection(db, "api_keys", userEmail, "my_apps"))
+            querySnap.forEach((doc) => {
+                var app = doc.data()
+                var obj = {
+                    'AppName': app.appName,
+                    'ApiKey': app.apiKey,
+                    'Authorized': app.authorized.toString()
+                }
+                jsonData.push(obj)
+            })
+            setApps(jsonData)
+        }
+        fetchMyApps()
+    }, [user, loading])
+
+    var column = null
+
+    if (apps !== null || apps != 'undefined') {
+        try {
+            column = Object.keys(apps[0])
+        } catch (err) {
+        }
+    }
+
+    // get table row data
+    const appData = () => {
+
+        return apps.map((data, i) => {
             return (
                 <tr>
                     <td>{i + 1}</td>
-                    <td>{info.AppName}</td>
-                    <td>{info.ApiKey}</td>
-                    <td>{info.Authorized}</td>
-                    <td><Button className="table-btn">Delete</Button></td>
-                </tr>
+                    {
+                        column.map((v) => {
+                            return <td>{data[v]}</td>
+                        })
+                    }
+                    < td > <Button className="table-btn"
+                        variant="contained"
+                        disableElevation={true}
+                        color="success">Delete</Button></td>
+                </tr >
             )
-        }
-    )
+        })
+    }
 
     useEffect(() => {
         if (loading) return
@@ -64,7 +100,7 @@ export default function Apis() {
                 </Box >
                 <p align="left" className="mt-2 mb-4">
                     An application will help you integrate to our API by generating an api key.</p>
-                <table className="table table-striped w-75">
+                <table className="table table-striped table-sm w-75">
                     <thead>
                         <tr>
                             <th scope="#">#</th>
@@ -75,7 +111,7 @@ export default function Apis() {
                         </tr>
                     </thead>
                     <tbody>
-                        {APP_DATA}
+                        {appData()}
                     </tbody>
                 </table>
             </div >

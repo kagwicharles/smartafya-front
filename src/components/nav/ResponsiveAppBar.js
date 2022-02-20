@@ -1,12 +1,13 @@
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
-    Link, Grid,
+    Grid,
     AppBar, Box,
     Toolbar, IconButton,
     Typography, Menu,
-    Container, MenuItem, Fade, Grow
+    Container, MenuItem, Fade
 } from '@mui/material'
+import { NavLink, NavNavLink } from 'react-router-dom'
 
 import { LoggedIn, LoggedOut } from './NavUser';
 import { useUserAuth } from "../../authentication/AuthProvider";
@@ -37,15 +38,15 @@ const ResponsiveAppBar = () => {
     };
 
     const toolbarStyle = {
-        minHeight: '50px',
+        minHeight: '55px',
     };
 
     return (
         <div>
-            <AppBar position="fixed" className='font-face-roboto'
-                elevation={4}
+            <AppBar position="fixed" sx={{ fontFamily: "sans-serif" }}
+                elevation={2}
                 color='transparent'
-                style={{ backgroundImage: 'linear-gradient(to right, #fff, #E2F1D5)' }}>
+            >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters
                         className='container'
@@ -56,9 +57,9 @@ const ResponsiveAppBar = () => {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            <Link href='/' underline='none' className='nav-link text-black'>
+                            <NavLink to='/' underline='none' className='nav-link text-black'>
                                 Smart Afya
-                            </Link>
+                            </NavLink>
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -97,7 +98,7 @@ const ResponsiveAppBar = () => {
                                 ))}
                             </Menu>
                         </Box>
-                        <Typography
+                        <Typography className="font-face-robotoB"
                             variant="h6"
                             noWrap
                             component="div"
@@ -107,24 +108,29 @@ const ResponsiveAppBar = () => {
                         </Typography>
 
                         <Fade in={true} timeout={1}>
-                            <Box sx={{
-                                flexGrow: 1,
-                                display: {
-                                    xs: 'none',
-                                    md: 'flex',
-                                    marginRight: '100px',
-                                }
-                            }}
+                            <Box id="btnContainer"
+                                sx={{
+                                    flexGrow: 1,
+                                    display: {
+                                        xs: 'none',
+                                        md: 'flex',
+                                        marginRight: '100px',
+                                    }
+                                }}
                                 justifyContent="flex-end">
-                                <Link href='/'
-                                    className='ripple nav-link text-black'
-                                    underline='none'>Home</Link>
-                                <Link href='/docs'
-                                    className='ripple nav-link text-black'
+                                <NavLink to='/'
+                                    className="ripple nav-link text-secondary"
+                                    underline='none'>Home</NavLink>
+                                <NavLink to='/docs'
+                                    className='ripple nav-link text-secondary'
                                     underline='none'>
-                                    Documentation</Link>
-                                <Link href='/applications' className='ripple nav-link text-black' underline='none'>Applications</Link>
-                                <Link href='/contact' className='ripple nav-link text-black' underline='none'>Contact Us</Link>
+                                    Documentation</NavLink>
+                                <NavLink to='/applications'
+                                    className='ripple nav-link text-secondary'
+                                    underline='none'>Applications</NavLink>
+                                <NavLink to='/contact'
+                                    className='ripple nav-link text-secondary'
+                                    underline='none'>Contact Us</NavLink>
                             </Box>
                         </Fade>
                         <Grid

@@ -124,7 +124,16 @@ export default function AccountPopover() {
                 ))}
 
                 <Box sx={{ p: 2, pt: 1.5 }}>
-                    <Button href="/login" onClick={handleLogout} fullWidth color="inherit" variant="outlined">
+                    <Button href="/login"
+                        onClick={handleLogout}
+                        fullWidth color="success"
+                        variant="contained"
+                        disableElevation={true}
+                        sx={{
+                            ':hover': {
+                                color: "#fff"
+                            }
+                        }}>
                         Logout
                     </Button>
                 </Box>

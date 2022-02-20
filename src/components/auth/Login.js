@@ -4,7 +4,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-import { logInWithEmailAndPassword, auth } from '../../authentication/firebase'
+import { logInWithEmailAndPassword } from '../../authentication/firebase'
+import { NotificationContainer, NotificationManager } from 'react-notifications'
 
 const theme = createTheme();
 
@@ -16,82 +17,95 @@ export default function Login() {
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
         logInWithEmailAndPassword(data.get('email'), data.get('password')).then(() => {
+            createNotification('success')
             navigate("/applications")
         })
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
     };
 
+    const createNotification = (type) => {
+        return () => {
+            switch (type) {
+                case 'success':
+                    NotificationManager.success('Success', 'Login status');
+                    break;
+                case 'error':
+                    NotificationManager.error('Error message', 'Login Error');
+                    break;
+            }
+        };
+    }
+
     return (
-        <Grid className="container" justifyContent="center"
-            sx={{
-                marginTop: 4,
-                padding: 2,
-                marginBottom: 4
-            }}
-        >
-            <Typography sx={{ alignSelf: "flex-start" }} variant="h4" align='left'>
-                Log in.
-            </Typography>
-            <Grid xs={12} sm={4}
-                component="form"
-                onSubmit={handleSubmit}
-                noValidate
+        <div>
+            <Grid className="container" justifyContent="center"
                 sx={{
-                    mt: 1,
-                    display: 'flex',
-                    flexDirection: 'column'
-                }}>
-                <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                    variant='standard'
-                />
-                <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                    variant="standard"
-                />
-                <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}
-                    label="Remember me"
-                />
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    disableElevation={true}
-                >
-                    Log in
-                </Button>
-                <Grid container>
-                    <Grid item xs>
-                        <Link href="#" variant="body2">
-                            Forgot password?
-                        </Link>
-                    </Grid>
-                    <Grid item style={{ marginLeft: '8px' }}>
-                        <Link href="/register" variant="body2">
-                            {"Don't have an account? Sign Up"}
-                        </Link>
+                    marginTop: 4,
+                    padding: 2,
+                    marginBottom: 4
+                }}
+            >
+                <Typography sx={{ alignSelf: "flex-start" }} variant="h4" align='left'>
+                    Log in.
+                </Typography>
+                <Grid xs={12} sm={4}
+                    component="form"
+                    onSubmit={handleSubmit}
+                    noValidate
+                    sx={{
+                        mt: 1,
+                        display: 'flex',
+                        flexDirection: 'column'
+                    }}>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                        variant='standard'
+                    />
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        variant="standard"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox value="remember" color="primary" />}
+                        label="Remember me"
+                    />
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        disableElevation={true}
+                    >
+                        Log in
+                    </Button>
+                    <Grid container>
+                        <Grid item xs>
+                            <Link href="#" variant="body2">
+                                Forgot password?
+                            </Link>
+                        </Grid>
+                        <Grid item style={{ marginLeft: '8px' }}>
+                            <Link href="/register" variant="body2">
+                                {"Don't have an account? Sign Up"}
+                            </Link>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+            <NotificationContainer />
+        </div>
     );
 }

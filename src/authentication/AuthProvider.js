@@ -8,7 +8,7 @@ import {
     signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../authentication/firebase";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const userAuthContext = createContext();
 

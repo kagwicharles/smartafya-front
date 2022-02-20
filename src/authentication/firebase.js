@@ -46,7 +46,6 @@ const logInWithEmailAndPassword = async (email, password) => {
         const user = await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
         console.error(err);
-        alert(err.message);
     }
 };
 
@@ -88,5 +87,5 @@ export {
     logInWithEmailAndPassword,
     registerWithEmailAndPassword,
     sendPasswordReset,
-    logout,
+    logout
 };
