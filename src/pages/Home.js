@@ -16,8 +16,8 @@ export default function Home() {
                             </Typography>
                             <Typography align='left'>
                                 Our APIs are designed to scale and are available on request by client applications.
-                                Smart Afya API can be used to predict Malaria, Pneumonia and Covid19 from chest x-rays.
-                                All you need to do is send an x-ray image to our service.
+                                Smart Afya API can be used to predict Malaria, Pneumonia and Covid19.
+                                All you need to do is send an image to our service.
                             </Typography>
                             <Box display='flex'>
                                 <Button
