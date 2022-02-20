@@ -33,6 +33,7 @@
     "react-tiny-popover": "^7.0.1",
     "react-typewriter-effect": "^1.1.0",
     "react-typing-effect": "^2.0.5",
+    "serve": "^13.0.2",
     "typeface-roboto": "^1.1.13",
     "web-vitals": "^2.1.4"
   },
