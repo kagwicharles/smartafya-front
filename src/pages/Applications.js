@@ -58,9 +58,9 @@ export default function Apis() {
                         })
                     }
                     < td > <Button className="table-btn"
-                        variant="contained"
+                        variant="text"
                         disableElevation={true}
-                        color="success">Delete</Button></td>
+                        color="error">Delete</Button></td>
                 </tr >
             )
         })

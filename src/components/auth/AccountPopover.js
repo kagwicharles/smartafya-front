@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import homeFill from '@iconify/icons-eva/home-fill';
 import personFill from '@iconify/icons-eva/person-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
@@ -12,8 +12,6 @@ import MenuPopover from './MenuPopover';
 import account from '../../mocks/account';
 import { logout } from '../../authentication/firebase'
 import { useUserAuth } from "../../authentication/AuthProvider";
-
-// ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
     {
@@ -37,7 +35,6 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
     const anchorRef = useRef(null);
     const [open, setOpen] = useState(false);
-
     const { user } = useUserAuth();
 
     let avatarChar = ""
@@ -92,7 +89,7 @@ export default function AccountPopover() {
             >
                 <Box sx={{ my: 1.5, px: 2.5 }}>
                     <Typography variant="subtitle1" noWrap>
-                        {account.displayName}
+                        {user.displayName}
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
                         {user.email}

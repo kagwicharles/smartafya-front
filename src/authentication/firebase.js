@@ -7,6 +7,7 @@ import {
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
     signOut,
+    updateProfile
 } from "firebase/auth";
 import {
     getFirestore,
@@ -53,6 +54,9 @@ const registerWithEmailAndPassword = async (firstName, lastName, email, password
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
+        updateProfile(auth.currentUser, {
+            displayName: firstName + " " + lastName
+        })
         await addDoc(collection(db, "users"), {
             uid: user.uid,
             firstName,
