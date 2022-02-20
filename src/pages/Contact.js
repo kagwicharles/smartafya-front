@@ -1,6 +1,6 @@
 import ContactBg from '../static/img/envelope.svg'
 
-import { Button, TextField, Grid, Stack, Box, Typography } from "@mui/material"
+import { Button, TextField, Grid, Typography, Grow } from "@mui/material"
 
 export default function Contact() {
 
@@ -17,57 +17,59 @@ export default function Contact() {
                 >
                     <img src={ContactBg} alt="contact us" />
                 </Grid>
-                <Grid item xs={4}>
-                    <Typography variant="h4"
-                        style={{ marginTop: '50px' }}
-                        align="left">Get In Touch</Typography>
-                    <form className="contact-form mt-4 d-flex flex-column mb-3">
-                        <TextField
-                            id="outlined-basic"
-                            placeholder="Enter your name"
-                            label="Name"
-                            variant="outlined"
-                            required
-                            type="text"
-                            fullWidth
-                        />
+                <Grow in={true} timeout={1000}>
+                    <Grid item xs={4}>
+                        <Typography variant="h4"
+                            style={{ marginTop: '50px' }}
+                            align="left">Get In Touch</Typography>
+                        <form className="contact-form mt-4 d-flex flex-column mb-3">
+                            <TextField
+                                id="outlined-basic"
+                                placeholder="Enter your name"
+                                label="Name"
+                                variant="outlined"
+                                required
+                                type="text"
+                                fullWidth
+                            />
 
-                        <br />
+                            <br />
 
-                        <TextField
-                            id="outlined-basic"
-                            label="Email"
-                            placeholder="Enter email address"
-                            variant="outlined"
-                            required
-                            type="email"
-                            fullWidth
-                        />
+                            <TextField
+                                id="outlined-basic"
+                                label="Email"
+                                placeholder="Enter email address"
+                                variant="outlined"
+                                required
+                                type="email"
+                                fullWidth
+                            />
 
-                        <br />
+                            <br />
 
-                        <TextField
-                            id="full-width-text-field"
-                            label="Message"
-                            placeholder="Enter Message"
-                            variant="outlined"
-                            rows={4}
-                            multiline
-                            required
-                            type="text"
-                            fullWidth
-                        />
+                            <TextField
+                                id="full-width-text-field"
+                                label="Message"
+                                placeholder="Enter Message"
+                                variant="outlined"
+                                rows={4}
+                                multiline
+                                required
+                                type="text"
+                                fullWidth
+                            />
 
-                        <br />
+                            <br />
 
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            disableElevation={true}>
-                            Send Message
-                        </Button>
-                    </form>
-                </Grid>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                disableElevation={true}>
+                                Send Message
+                            </Button>
+                        </form>
+                    </Grid>
+                </Grow>
             </Grid>
         </div>
     )

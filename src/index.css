@@ -27,5 +27,5 @@ code {
 #btnContainer .active {
   background-color: #ededed;
   color: black !important;
-  border-radius: 8px;
+  border-radius: 4px;
 }
