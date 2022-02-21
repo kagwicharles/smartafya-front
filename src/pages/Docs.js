@@ -70,7 +70,7 @@ export default function Docs() {
                                 <Typography id='predict-xray' variant='h4' align='left' className='title-content'
                                     style={{ marginTop: '40px' }}
                                 >
-                                    Predict X-ray/Microscopic cell
+                                    Predict X-ray/Microscopic cells
                                 </Typography>
 
                                 <p style={{ textAlign: 'left', marginTop: '20px' }}>

@@ -45,7 +45,7 @@ const ResponsiveAppBar = () => {
         <div>
             <AppBar position="fixed"
                 sx={{
-                    fontFamily: "font-face-roboto",
+                    fontFamily: "sans-serif",
                 }}
                 elevation={1}
             >
