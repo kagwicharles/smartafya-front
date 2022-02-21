@@ -25,6 +25,8 @@ code {
 }
 
 #btnContainer .active {
-  border-bottom: 2px solid #ededed;
+  border-bottom: 3px solid #ededed;
   color: #d4eee3 !important;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }

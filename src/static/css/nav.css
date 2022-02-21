@@ -1,6 +1,6 @@
-.ripple {
-    margin: 4px;
-    text-decoration: none;
+.nav-link {
+   margin-left: 10px;
+   margin-right: 10px;
 }
 
 .ripple:hover {

@@ -118,17 +118,17 @@ const ResponsiveAppBar = () => {
                                 }}
                                 justifyContent="flex-end">
                                 <NavLink to='/'
-                                    className="ripple nav-link text-white"
+                                    className="ripple nav-link text-white px-1"
                                     underline='none'>Home</NavLink>
                                 <NavLink to='/docs'
-                                    className='ripple nav-link text-white'
+                                    className='ripple nav-link text-white px-1'
                                     underline='none'>
                                     Documentation</NavLink>
                                 <NavLink to='/applications'
-                                    className='ripple nav-link text-white'
+                                    className='ripple nav-link text-white px-1'
                                     underline='none'>Applications</NavLink>
                                 <NavLink to='/contact'
-                                    className='ripple nav-link text-white'
+                                    className='ripple nav-link text-white px-1'
                                     underline='none'>Contact Us</NavLink>
                             </Box>
                         </Fade>
