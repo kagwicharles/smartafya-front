@@ -5,11 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
-import Footer from './components/Footer'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
-import "./fonts/Roboto/Roboto-Black.ttf"
+import "./fonts/Roboto/Roboto-Medium.ttf"
 
 ReactDOM.render(
   <React.StrictMode>
