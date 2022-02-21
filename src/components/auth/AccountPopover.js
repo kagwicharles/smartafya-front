@@ -77,7 +77,7 @@ export default function AccountPopover() {
                     })
                 }}
             >
-                <Avatar className="bg-success"
+                <Avatar className="bg-secondary"
                     alt="photoURL">{avatarChar}</Avatar>
             </IconButton>
 

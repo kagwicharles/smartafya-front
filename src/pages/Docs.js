@@ -11,7 +11,7 @@ export default function Docs() {
                 <Grid
                     item
                     xs={4}
-                    className={"flex-col-scroll"}
+                    className={"flex-col-scroll pt-2"}
                 >
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <Icon width='40' height='40' color="#353c47" icon="bi:stack" />
@@ -70,11 +70,11 @@ export default function Docs() {
                                 <Typography id='predict-xray' variant='h4' align='left' className='title-content'
                                     style={{ marginTop: '40px' }}
                                 >
-                                    Predict x-ray
+                                    Predict X-ray/Microscopic cell
                                 </Typography>
 
                                 <p style={{ textAlign: 'left', marginTop: '20px' }}>
-                                    To predict an x-ray image make a POST call to the following url :
+                                    To predict an x-ray/microscopic cell image make a POST call to the following url :
                                     http://api.smartafya.com/predict
                                 </p>
 

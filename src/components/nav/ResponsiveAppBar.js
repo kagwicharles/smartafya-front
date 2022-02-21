@@ -43,9 +43,11 @@ const ResponsiveAppBar = () => {
 
     return (
         <div>
-            <AppBar position="fixed" sx={{ fontFamily: "sans-serif" }}
-                elevation={2}
-                color='transparent'
+            <AppBar position="fixed"
+                sx={{
+                    fontFamily: "font-face-roboto",
+                }}
+                elevation={1}
             >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters
@@ -57,7 +59,7 @@ const ResponsiveAppBar = () => {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            <NavLink to='/' underline='none' className='nav-link text-black'>
+                            <NavLink to='/' underline='none' className='nav-link text-light'>
                                 Smart Afya
                             </NavLink>
                         </Typography>
@@ -119,17 +121,17 @@ const ResponsiveAppBar = () => {
                                 }}
                                 justifyContent="flex-end">
                                 <NavLink to='/'
-                                    className="ripple nav-link text-secondary"
+                                    className="ripple nav-link text-white"
                                     underline='none'>Home</NavLink>
                                 <NavLink to='/docs'
-                                    className='ripple nav-link text-secondary'
+                                    className='ripple nav-link text-white'
                                     underline='none'>
                                     Documentation</NavLink>
                                 <NavLink to='/applications'
-                                    className='ripple nav-link text-secondary'
+                                    className='ripple nav-link text-white'
                                     underline='none'>Applications</NavLink>
                                 <NavLink to='/contact'
-                                    className='ripple nav-link text-secondary'
+                                    className='ripple nav-link text-white'
                                     underline='none'>Contact Us</NavLink>
                             </Box>
                         </Fade>
