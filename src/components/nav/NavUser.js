@@ -13,7 +13,9 @@ const LoggedOut = () => {
                     textTransform: "none",
                     ':hover': {
                         color: '#fff',
-                    }
+                    },
+                    textTransform: "none",
+                    fontSize: 16
                 }}
                 disableElevation={true}
             >
@@ -27,7 +29,9 @@ const LoggedOut = () => {
                     textTransform: "none",
                     ':hover': {
                         color: "white"
-                    }
+                    },
+                    textTransform: "none",
+                    fontSize: 16
                 }}>
                 Sign Up</Button>
         </Box>

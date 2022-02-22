@@ -63,16 +63,24 @@ export default function CreateApplication(props) {
                     <br />
 
                     <Box sx={{ display: 'flex' }}>
-                        <Button variant="contained"
+                        <Button sx={{
+                            textTransform: "none",
+                            fontSize: 16
+                        }}
+                            variant="contained"
                             type="submit"
                             disableElevation={true}>
                             Save</Button>
-                        <Button variant="contained"
-                            sx={{ marginLeft: "10px" }}
+                        <Button
+                            variant="contained"
+                            sx={{
+                                marginLeft: "10px", textTransform: "none",
+                                fontSize: 16
+                            }}
                             color="inherit"
                             href="/applications"
                             disableElevation={true}>
-                            cancel</Button>
+                            Cancel</Button>
                     </Box>
                 </form>
             </Box>

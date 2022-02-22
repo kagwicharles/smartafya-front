@@ -87,10 +87,12 @@ export default function Apis() {
                         My Applications
                     </Typography>
                     <Button sx={{
+                        textTransform: "none",
                         marginLeft: '10px',
                         ':hover': {
                             color: '#fff',
-                        }
+                        },
+                        fontSize: 16
                     }}
                         variant='contained'
                         href="/applications/create"
