@@ -44,7 +44,7 @@ const ResponsiveAppBar = () => {
     return (
         <div>
             <AppBar position="fixed" className="font-face-robotoB"
-                elevation={1}
+                elevation={2}
             >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters

@@ -1,10 +1,12 @@
 body {
   background-color: "#fff";
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 @font-face {
   font-family: "RobotoRegular";
   src: local("RobotoRegular"),
@@ -20,7 +22,7 @@ code {
 }
 
 #btnContainer .active {
-  border-bottom: 3px solid #ededed;
+  border-bottom: 3px solid #F8F9FA;
   color: #d4eee3 !important;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;

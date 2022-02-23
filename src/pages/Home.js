@@ -5,18 +5,18 @@ import MediLogo from '../static/img/medical1.svg'
 
 export default function Home() {
     return (
-        <div className="home-cont">
+        <div>
             <Slide direction='up' in={true} timeout={1000}>
                 <Grid container className='container align-items-center'>
                     <Grid item xs={6}>
                         <Stack spacing={2} justifyContent='center'>
-                            <Typography
-                                variant='h3' align='left'>
+                            <Typography variant="h3" align='left'>
                                 Accurate predictions for Malaria, Pneumonia and Covid19.
                             </Typography>
-                            <Typography align='left'>
+                            <Typography variant="p"
+                                align='left'
+                                style={{ fontFamily: "sans-serif" }}>
                                 Our APIs are designed to scale and are available on request by client applications.
-                                Smart Afya API can be used to predict Malaria, Pneumonia and Covid19.
                                 All you need to do is send an image to our service.
                             </Typography>
                             <Box display='flex'>
