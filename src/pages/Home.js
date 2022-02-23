@@ -8,11 +8,11 @@ export default function Home() {
         <div className="home-cont">
             <Slide direction='up' in={true} timeout={1000}>
                 <Grid container className='container align-items-center'>
-                    <Grid item xs={5}>
+                    <Grid item xs={6}>
                         <Stack spacing={2} justifyContent='center'>
                             <Typography
                                 variant='h3' align='left'>
-                                Accurate results on x-ray/microscopic cell scans
+                                Accurate results for x-ray/microscopic cell scans
                             </Typography>
                             <Typography align='left'>
                                 Our APIs are designed to scale and are available on request by client applications.
@@ -41,7 +41,7 @@ export default function Home() {
                             </Box>
                         </Stack>
                     </Grid>
-                    <Grid item xs={7}>
+                    <Grid item xs={6}>
                         <img className='fill-height'
                             src={MediLogo} alt="Medi Logo" />
                     </Grid>
