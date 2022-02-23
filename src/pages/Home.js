@@ -11,7 +11,7 @@ export default function Home() {
                     <Grid item xs={5}>
                         <Stack spacing={2} justifyContent='center'>
                             <Typography
-                                variant='h4' align='left'>
+                                variant='h3' align='left'>
                                 Accurate results guaranteed <br /> on x-ray scans
                             </Typography>
                             <Typography align='left'>
