@@ -12,7 +12,7 @@ export default function Home() {
                         <Stack spacing={2} justifyContent='center'>
                             <Typography
                                 variant='h3' align='left'>
-                                Accurate results for x-ray/microscopic cell scans
+                                Accurate predictions for Malaria, Pneumonia and Covid19.
                             </Typography>
                             <Typography align='left'>
                                 Our APIs are designed to scale and are available on request by client applications.

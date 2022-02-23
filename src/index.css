@@ -1,15 +1,10 @@
 body {
-
-  padding-top: 0;
-  margin-top: 0;
   background-color: "#fff";
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 @font-face {
   font-family: "RobotoRegular";
   src: local("RobotoRegular"),
