@@ -12,7 +12,7 @@ export default function Home() {
                         <Stack spacing={2} justifyContent='center'>
                             <Typography
                                 variant='h3' align='left'>
-                                Accurate results guaranteed <br /> on x-ray scans
+                                Accurate results on x-ray/microscopic cell scans
                             </Typography>
                             <Typography align='left'>
                                 Our APIs are designed to scale and are available on request by client applications.
