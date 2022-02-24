@@ -10,7 +10,7 @@ export default function Home() {
                 <Grid container className='container align-items-center'>
                     <Grid item xs={6}>
                         <Stack spacing={2} justifyContent='center'>
-                            <Typography className="font-face-mulish-black" variant='h3' align='left'>
+                            <Typography variant='h3' align='left'>
                                 Accurate predictions for Malaria, Pneumonia and Covid19.
                             </Typography>
                             <Typography variant="p"
