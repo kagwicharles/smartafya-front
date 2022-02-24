@@ -29,6 +29,13 @@ code {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "MulishBlack";
+  src: local("MulishBlack"),
+    url("./fonts/Mulish/Mulish-Black.ttf") format("truetype");
+  font-weight: normal;
+}
+
 #btnContainer .active {
   border-bottom: 3px solid #F8F9FA;
   color: #d4eee3 !important;
