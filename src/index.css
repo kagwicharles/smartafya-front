@@ -16,6 +16,13 @@ code {
 }
 
 @font-face {
+  font-family: "RobotoBlack";
+  src: local("RobotoBlack"),
+    url("./fonts/Roboto/Roboto-Black.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
   font-family: "RobotoMedium";
   src: local("RobotoMedium"),
     url("./fonts/Roboto/Roboto-Medium.ttf") format("truetype");
