@@ -10,7 +10,7 @@ export default function Home() {
                 <Grid container className='container align-items-center'>
                     <Grid item xs={6}>
                         <Stack spacing={2} justifyContent='center'>
-                            <Typography variant="h3" align='left'>
+                            <Typography variant='h3' align='left'>
                                 Accurate predictions for Malaria, Pneumonia and Covid19.
                             </Typography>
                             <Typography variant="p"
@@ -42,7 +42,7 @@ export default function Home() {
                         </Stack>
                     </Grid>
                     <Grid item xs={6}>
-                        <img className='fill-height'
+                        <img className='fill-height w-100'
                             src={MediLogo} alt="Medi Logo" />
                     </Grid>
                 </Grid>
