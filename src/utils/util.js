@@ -1,3 +1,6 @@
+const TOP_LEVEL_DOC = "api_keys"
+const LOW_LEVEL_DOC = "my_apps"
+
 function generateKey() {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -6,9 +9,11 @@ function generateKey() {
         result += characters.charAt(Math.floor(Math.random() *
             charactersLength));
     }
-    return result.toUpperCase();
+    return result;
 }
 
 export {
+    TOP_LEVEL_DOC,
+    LOW_LEVEL_DOC,
     generateKey
 }

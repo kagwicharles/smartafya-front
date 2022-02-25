@@ -5,7 +5,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
 import { logInWithEmailAndPassword } from '../../authentication/firebase'
-import { NotificationContainer, NotificationManager } from 'react-notifications'
 
 const theme = createTheme();
 
@@ -17,23 +16,9 @@ export default function Login() {
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
         logInWithEmailAndPassword(data.get('email'), data.get('password')).then(() => {
-            createNotification('success')
             navigate("/applications")
         })
     };
-
-    const createNotification = (type) => {
-        return () => {
-            switch (type) {
-                case 'success':
-                    NotificationManager.success('Success', 'Login status');
-                    break;
-                case 'error':
-                    NotificationManager.error('Error message', 'Login Error');
-                    break;
-            }
-        };
-    }
 
     return (
         <div>
@@ -105,7 +90,6 @@ export default function Login() {
                     </Grid>
                 </Grid>
             </Grid>
-            <NotificationContainer />
         </div>
     );
 }

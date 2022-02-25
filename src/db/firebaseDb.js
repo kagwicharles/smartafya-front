@@ -1,4 +1,7 @@
-import { collection, getFirestore, addDoc, doc, setDoc, getDoc } from "firebase/firestore"
+import {
+    collection, getFirestore,
+    doc, setDoc, getDocs, where, query, deleteDoc
+} from "firebase/firestore"
 
 const db = getFirestore();
 
@@ -20,26 +23,21 @@ function addApp(generatedKey, email, app_name, app_desc) {
     }
 }
 
-function getApps() {
-    getDoc(doc(db, "api_keys", "kagwitheuri@gmail.com")).then(docSnap => {
-        if (docSnap.exists()) {
-            const allApps = docSnap.data()
-            var obj = {
-                'No': 1,
-                'AppName': allApps.appName,
-                'ApiKey': allApps.apiKey,
-                'Authorized': allApps.authorized.toString()
-            }
-            console.log(jsonData)
-            jsonData.push(obj)
-        } else {
-            console.log("No such document!");
-        }
+const deleteApp = async (top_level_doc, email, low_level_doc, api_key) => {
+    const collectionRef = collection(db, top_level_doc, email, low_level_doc)
+    const q = query(collectionRef, where("apiKey", "==", api_key))
+    const querySnap = await getDocs(q)
+    const results = querySnap.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    results.forEach(async result => {
+        const docRef = doc(collectionRef, result.id)
+        await deleteDoc(docRef)
+        return 0
     })
+    return 1
 }
 
 export {
     jsonData,
     addApp,
-    getApps,
+    deleteApp
 }

@@ -7,6 +7,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from '../authentication/firebase'
 import { getFirestore, getDocs, collection } from "firebase/firestore"
+import { deleteApp } from "../db/firebaseDb";
+import { LOW_LEVEL_DOC, TOP_LEVEL_DOC } from "../../src/utils/util";
 
 import '../static/css/applications.css'
 
@@ -21,7 +23,8 @@ export default function Apis() {
         var jsonData = []
         async function fetchMyApps() {
             const userEmail = user.email
-            const querySnap = await getDocs(collection(db, "api_keys", userEmail, "my_apps"))
+            const querySnap = await getDocs(collection(db,
+                TOP_LEVEL_DOC, userEmail, LOW_LEVEL_DOC))
             querySnap.forEach((doc) => {
                 var app = doc.data()
                 var obj = {
@@ -45,6 +48,13 @@ export default function Apis() {
         }
     }
 
+    const handleDeleteApp = (e) => {
+        const row = e.target.parentNode.parentNode
+        const apiKey = row.cells[2].textContent;
+        const status = deleteApp(TOP_LEVEL_DOC, "kagwitheuri@gmail.com", LOW_LEVEL_DOC, apiKey)
+        row.remove()
+    }
+
     // get table row data
     const appData = () => {
 
@@ -60,6 +70,7 @@ export default function Apis() {
                     < td > <Button className="table-btn"
                         variant="text"
                         disableElevation={true}
+                        onClick={(e) => { handleDeleteApp(e) }}
                         color="error">Delete</Button></td>
                 </tr >
             )
@@ -95,7 +106,9 @@ export default function Apis() {
                         fontSize: 16
                     }}
                         variant='contained'
-                        href="/applications/create"
+                        onClick={() => {
+                            navigate("/applications/create")
+                        }}
                         startIcon={<Icon icon="bi:plus-lg" />}
                         disableElevation={true}>
                         New Application</Button>
@@ -107,7 +120,7 @@ export default function Apis() {
                         <tr>
                             <th scope="#">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Api key</th>
+                            <th scope="col" name="api_key">Api key</th>
                             <th scope="col">Authorized</th>
                             <th scope="col">Actions</th>
                         </tr>
