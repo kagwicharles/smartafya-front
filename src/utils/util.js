@@ -6,7 +6,7 @@ function generateKey() {
         result += characters.charAt(Math.floor(Math.random() *
             charactersLength));
     }
-    return result;
+    return result.toUpperCase();
 }
 
 export {
