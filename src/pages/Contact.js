@@ -15,7 +15,7 @@ export default function Contact() {
                     display='flex'
                     justifyContent='center'
                 >
-                    <img src={ContactBg} alt="contact us" />
+                    <img className="p-4" src={ContactBg} alt="contact us" />
                 </Grid>
                 <Grow in={true} timeout={1000}>
                     <Grid item xs={4}>

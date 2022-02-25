@@ -78,7 +78,7 @@ export default function CreateApplication(props) {
                                 fontSize: 16
                             }}
                             color="inherit"
-                            href="/applications"
+                            onClick={() => { navigate("/applications") }}
                             disableElevation={true}>
                             Cancel</Button>
                     </Box>

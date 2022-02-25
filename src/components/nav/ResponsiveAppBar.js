@@ -97,7 +97,7 @@ const ResponsiveAppBar = () => {
                                 ))}
                             </Menu>
                         </Box>
-                        <Typography className="font-face-robotoB"
+                        <Typography className="font-face-roboto"
                             variant="h6"
                             noWrap
                             component="div"

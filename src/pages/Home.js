@@ -1,9 +1,12 @@
 import { Grid, Button, Stack, Box, Typography, Slide } from '@mui/material';
+import { useNavigate } from 'react-router-dom'
 
 import '../static/css/home.css'
 import MediLogo from '../static/img/medical1.svg'
 
 export default function Home() {
+    const navigate = useNavigate()
+
     return (
         <div>
             <Slide direction='up' in={true} timeout={1000}>
@@ -34,7 +37,7 @@ export default function Home() {
                                         }
                                     }}
                                     variant="contained"
-                                    href="/applications"
+                                    onClick={() => { navigate("/applications") }}
                                     disableElevation={true}>
                                     Get Started
                                 </Button>
