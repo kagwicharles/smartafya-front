@@ -1,7 +1,9 @@
 import { Box, Typography, Button, Fade } from "@mui/material"
 import React, { useEffect, useState } from "react";
 import { Icon } from '@iconify/react'
-
+import { ToastContainer, Slide } from 'react-toastify';
+import { notify } from "../../src/utils/util";
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +20,15 @@ export default function Apis() {
     const navigate = useNavigate();
     const [apps, setApps] = useState([])
     const db = getFirestore();
+
+    const handleDeleteApp = (e) => {
+        const row = e.target.parentNode.parentNode
+        const apiKey = row.cells[2].textContent;
+        const appName = row.cells[1].textContent;
+        const status = deleteApp(TOP_LEVEL_DOC, "kagwitheuri@gmail.com", LOW_LEVEL_DOC, apiKey)
+        row.remove()
+        notify(appName + " deleted successfully")
+    }
 
     useEffect(() => {
         var jsonData = []
@@ -46,13 +57,6 @@ export default function Apis() {
             column = Object.keys(apps[0])
         } catch (err) {
         }
-    }
-
-    const handleDeleteApp = (e) => {
-        const row = e.target.parentNode.parentNode
-        const apiKey = row.cells[2].textContent;
-        const status = deleteApp(TOP_LEVEL_DOC, "kagwitheuri@gmail.com", LOW_LEVEL_DOC, apiKey)
-        row.remove()
     }
 
     // get table row data
@@ -129,6 +133,11 @@ export default function Apis() {
                         {appData()}
                     </tbody>
                 </table>
+                <ToastContainer
+                    transition={Slide}
+                    toastStyle={{
+                        backgroundColor: "#fafafa",
+                    }} />
             </div >
         </Fade>
     )

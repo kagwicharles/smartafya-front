@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 const TOP_LEVEL_DOC = "api_keys"
 const LOW_LEVEL_DOC = "my_apps"
 
@@ -12,8 +14,21 @@ function generateKey() {
     return result;
 }
 
+
+const notify = (message) => toast.info(message, {
+    position: "bottom-right",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: toast.TYPE.SUCCESS,
+});
+
 export {
     TOP_LEVEL_DOC,
     LOW_LEVEL_DOC,
-    generateKey
+    generateKey,
+    notify
 }

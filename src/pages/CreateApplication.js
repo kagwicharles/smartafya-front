@@ -1,5 +1,8 @@
 import { Box, TextField, Button, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, Slide } from 'react-toastify';
+import { notify } from '../utils/util';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { generateKey } from "../utils/util"
 import { addApp } from "../db/firebaseDb"
@@ -15,11 +18,11 @@ export default function CreateApplication(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         const data = new FormData(event.currentTarget);
-
+        const appName = data.get('app_name')
         const key = generateKey()
-        addApp(key, user.email, data.get('app_name'), data.get('app_desc'))
+        addApp(key, user.email, appName, data.get('app_desc'))
+        notify(appName, " created Successfully")
         navigate("/applications")
-        console.log("Generated key: " + key)
     }
 
     return (
@@ -84,6 +87,11 @@ export default function CreateApplication(props) {
                     </Box>
                 </form>
             </Box>
+            <ToastContainer
+                transition={Slide}
+                toastStyle={{
+                    backgroundColor: "#fafafa",
+                }} />
         </div>
     )
 }
