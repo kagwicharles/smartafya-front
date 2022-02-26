@@ -38,10 +38,16 @@ export default function Apis() {
                 TOP_LEVEL_DOC, userEmail, LOW_LEVEL_DOC))
             querySnap.forEach((doc) => {
                 var app = doc.data()
+                var authorized = ""
+                if (app.authorized.toString() === "true") {
+                    authorized = "Yes"
+                } else {
+                    authorized = "No"
+                }
                 var obj = {
                     'AppName': app.appName,
                     'ApiKey': app.apiKey,
-                    'Authorized': app.authorized.toString()
+                    'Authorized': authorized
                 }
                 jsonData.push(obj)
             })
