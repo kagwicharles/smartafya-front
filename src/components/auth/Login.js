@@ -3,7 +3,7 @@ import { Button, TextField, Checkbox, Link, Box, Grid, Typography, Container } f
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, Slide } from 'react-toastify';
+import { ToastContainer, Slide, toast } from 'react-toastify';
 import { notify } from '../../utils/util';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -20,7 +20,7 @@ export default function Login() {
         // eslint-disable-next-line no-console
         logInWithEmailAndPassword(data.get('email'), data.get('password')).then(() => {
             navigate("/applications")
-            notify("Successfully Logged In")
+            notify("Successfully Logged In", toast.TYPE.SUCCESS)
         })
     };
 

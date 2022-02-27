@@ -47,7 +47,7 @@ const ResponsiveAppBar = () => {
                 elevation={2}
             >
                 <Container maxWidth="xl">
-                    <Toolbar disableGutters
+                    <Toolbar disableGutters variant="dense"
                         className='container'
                         style={toolbarStyle}>
                         <Typography

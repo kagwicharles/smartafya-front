@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Button, TextField, Checkbox, Link, Grid, Box, Typography, Container } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { Icon } from '@iconify/react'
+import { ToastContainer, Slide, toast } from 'react-toastify';
+import { notify } from '../../utils/util';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { registerWithEmailAndPassword } from '../../authentication/firebase'
 
@@ -10,8 +12,14 @@ export default function Register() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
+    var password = data.get("password")
+    var confirmPassword = data.get('confirmPassword')
+    if (password !== confirmPassword) {
+      notify("Register error", toast.TYPE.ERROR)
+      return
+    }
     registerWithEmailAndPassword(data.get('firstName'), data.get('lastName'),
-      data.get('email'), data.get('password'))
+      data.get('email'), password)
     console.log({
       email: data.get('email'),
       password: data.get('password'),
@@ -122,6 +130,11 @@ export default function Register() {
           </Grid>
         </Grid>
       </Grid>
+      <ToastContainer
+        transition={Slide}
+        toastStyle={{
+          backgroundColor: "#fafafa",
+        }} />
     </Grid>
   );
 }

@@ -15,7 +15,7 @@ function generateKey() {
 }
 
 
-const notify = (message) => toast.info(message, {
+const notify = (message, TYPE) => toast.info(message, {
     position: "bottom-right",
     autoClose: 4000,
     hideProgressBar: false,
@@ -23,7 +23,7 @@ const notify = (message) => toast.info(message, {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    type: toast.TYPE.SUCCESS,
+    type: TYPE,
 });
 
 export {

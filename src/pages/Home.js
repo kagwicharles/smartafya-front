@@ -10,12 +10,13 @@ export default function Home() {
     return (
         <div>
             <Slide direction='up' in={true} timeout={1000}>
-                <Grid container className='container align-items-center'>
+                <Grid container
+                    className='container fill-height align-items-center'>
                     <Grid item xs={6}>
                         <Stack spacing={2} justifyContent='center'>
-                            <Typography variant='h3' align='left'>
+                            <h1 align='left'>
                                 Accurate predictions for Malaria, Pneumonia and Covid19.
-                            </Typography>
+                            </h1>
                             <Typography variant="p"
                                 align='left'
                                 style={{ fontFamily: "sans-serif" }}>
