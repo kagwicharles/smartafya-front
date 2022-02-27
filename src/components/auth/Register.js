@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, TextField, Checkbox, Link, Grid, Box, Typography, Container } from '@mui/material'
+import { Button, TextField, Checkbox, Link, Grid } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { ToastContainer, Slide, toast } from 'react-toastify';
 import { notify } from '../../utils/util';
@@ -35,9 +35,9 @@ export default function Register() {
       }}
     >
 
-      <Typography variant="h4" align='left'>
+      <h1 align='left'>
         Create an Account
-      </Typography>
+      </h1>
       <Grid xs={12} sm={4}
         style={{
           display: 'flex',

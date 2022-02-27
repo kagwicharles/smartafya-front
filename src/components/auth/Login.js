@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { Button, TextField, Checkbox, Link, Box, Grid, Typography, Container } from '@mui/material'
+import { Button, TextField, Checkbox, Link, Grid, Typography } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, Slide, toast } from 'react-toastify';
 import { notify } from '../../utils/util';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { logInWithEmailAndPassword } from '../../authentication/firebase'
-
-const theme = createTheme();
 
 export default function Login() {
     const navigate = useNavigate()

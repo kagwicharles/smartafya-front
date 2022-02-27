@@ -1,6 +1,6 @@
 import ContactBg from '../static/img/envelope.svg'
 
-import { Button, TextField, Grid, Typography, Grow } from "@mui/material"
+import { Button, TextField, Grid, Grow } from "@mui/material"
 
 export default function Contact() {
 
@@ -19,9 +19,9 @@ export default function Contact() {
                 </Grid>
                 <Grow in={true} timeout={1000}>
                     <Grid item xs={4}>
-                        <Typography variant="h4"
+                        <h1
                             style={{ marginTop: '50px' }}
-                            align="left">Get In Touch</Typography>
+                            align="left">Get In Touch</h1>
                         <form className="contact-form mt-4 d-flex flex-column mb-3">
                             <TextField
                                 id="outlined-basic"
