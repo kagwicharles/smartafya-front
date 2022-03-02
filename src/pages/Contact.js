@@ -1,8 +1,47 @@
+import { useState } from 'react'
+import { send } from 'emailjs-com'
+import { Button, TextField, Grid, Grow, Stack } from "@mui/material"
 import ContactBg from '../static/img/envelope.svg'
+import CorrectBg from '../static/img/check.jpg'
 
-import { Button, TextField, Grid, Grow } from "@mui/material"
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_USER_ID } from '../env/env'
 
 export default function Contact() {
+
+    const [isFormHidden, setFormVisibility] = useState(true)
+
+    const [toSend, setToSend] = useState({
+        from_name: '',
+        to_name: '',
+        message: '',
+        subject: ''
+    })
+
+    const clearForm = () => {
+        document.getElementById("contact-form").reset();
+    }
+
+    const handleChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        sendEmail()
+    }
+
+    const sendEmail = () => {
+        setFormVisibility(false)
+        send(EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            toSend, EMAILJS_USER_ID)
+            .then((result) => {
+                setTimeout(setFormVisibility(true), 8000)
+                clearForm()
+            }, (error) => {
+                setTimeout(setFormVisibility(true), 3000)
+            });
+    };
 
     return (
         <div className="container font-face-roboto">
@@ -15,40 +54,65 @@ export default function Contact() {
                     display='flex'
                     justifyContent='center'
                 >
-                    <img className="p-4" src={ContactBg} alt="contact us" />
+                    <img
+                        className={
+                            isFormHidden ? "contact-form mt-4 d-flex flex-column mb-3 p-4" : "d-none"}
+                        src={ContactBg} alt="contact us" />
+                    <Stack className={
+                        !isFormHidden ? "contact-form mt-4 d-flex flex-column mb-3 p-4" : "d-none"}
+                    >
+                        <h1>
+                            Thank you for reaching us.</h1>
+
+                        <img style={{ height: 200, width: 200 }}
+                            src={CorrectBg} alt="contact us" />
+                    </Stack>
                 </Grid>
                 <Grow in={true} timeout={1000}>
                     <Grid item xs={4}>
                         <h1
                             style={{ marginTop: '50px' }}
                             align="left">Get In Touch</h1>
-                        <form className="contact-form mt-4 d-flex flex-column mb-3">
+                        <form id="contact-form"
+                            className="contact-form mt-4 d-flex flex-column mb-3"
+                            onSubmit={handleSubmit}>
                             <TextField
-                                id="outlined-basic"
+                                id="user_name"
+                                name="user_name"
                                 placeholder="Enter your name"
                                 label="Name"
                                 variant="outlined"
                                 required
                                 type="text"
                                 fullWidth
+                                inputProps={{
+                                    maxLength: 30
+                                }}
+                                onChange={handleChange}
                             />
 
                             <br />
 
                             <TextField
-                                id="outlined-basic"
-                                label="Email"
-                                placeholder="Enter email address"
+                                id="subject"
+                                name="subject"
+                                label="Subject"
+                                placeholder="Enter email subject"
                                 variant="outlined"
                                 required
-                                type="email"
+                                type="text"
                                 fullWidth
+                                inputProps={{
+                                    maxLength: 30
+                                }}
+                                onChange={handleChange}
                             />
 
                             <br />
 
                             <TextField
-                                id="full-width-text-field"
+                                id="message"
+                                name="message"
                                 label="Message"
                                 placeholder="Enter Message"
                                 variant="outlined"
@@ -57,6 +121,10 @@ export default function Contact() {
                                 required
                                 type="text"
                                 fullWidth
+                                inputProps={{
+                                    maxLength: 300
+                                }}
+                                onChange={handleChange}
                             />
 
                             <br />

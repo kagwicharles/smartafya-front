@@ -1,7 +1,7 @@
 import { Box, Typography, Button, Fade } from "@mui/material"
 import React, { useEffect, useState } from "react";
 import { Icon } from '@iconify/react'
-import { ToastContainer, Slide } from 'react-toastify';
+import { ToastContainer, Slide, toast } from 'react-toastify';
 import { notify } from "../../src/utils/util";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,13 +19,24 @@ export default function Apis() {
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
     const [apps, setApps] = useState([])
+    const [highlightedText, setHighlightedText] = useState("")
     const db = getFirestore();
 
-    const handleDeleteApp = (e) => {
+    const handleCopyClip = (e) => {
+        e.preventDefault()
         const row = e.target.parentNode.parentNode
-        const apiKey = row.cells[2].textContent;
-        const appName = row.cells[1].textContent;
-        const status = deleteApp(TOP_LEVEL_DOC, "kagwitheuri@gmail.com", LOW_LEVEL_DOC, apiKey)
+        const cell = row.cells[2]
+        const apiKey = cell.textContent
+        setHighlightedText(apiKey)
+        navigator.clipboard.writeText(highlightedText);
+        notify("Key copied!", toast.TYPE.SUCCESS)
+    }
+    const handleDeleteApp = (e) => {
+        e.preventDefault()
+        const row = e.target.parentNode.parentNode
+        const apiKey = row.cells[2].textContent
+        const appName = row.cells[1].textContent
+        deleteApp(TOP_LEVEL_DOC, "kagwitheuri@gmail.com", LOW_LEVEL_DOC, apiKey)
         row.remove()
         notify(appName + " deleted successfully")
     }
@@ -72,16 +83,20 @@ export default function Apis() {
             return (
                 <tr>
                     <td>{i + 1}</td>
-                    {
-                        column.map((v) => {
-                            return <td>{data[v]}</td>
-                        })
-                    }
-                    < td > <Button className="table-btn"
-                        variant="text"
-                        disableElevation={true}
-                        onClick={(e) => { handleDeleteApp(e) }}
-                        color="error">Delete</Button></td>
+                    <td>{data.AppName}</td>
+                    <td>{data.ApiKey}</td>
+                    <td>{data.Authorized}</td>
+                    <td style={{ marginLeft: 5 }}><Icon
+                        onClick={handleCopyClip}
+                        width='25'
+                        height='25'
+                        color="#353c47"
+                        icon="ep:copy-document"></Icon>
+                        <Button className="table-btn" sx={{ marginLeft: 1 }}
+                            variant="text"
+                            disableElevation={true}
+                            onClick={(e) => { handleDeleteApp(e) }}
+                            color="error">Delete</Button></td>
                 </tr >
             )
         })
@@ -139,6 +154,11 @@ export default function Apis() {
                         {appData()}
                     </tbody>
                 </table>
+                <ToastContainer
+                    transition={Slide}
+                    toastStyle={{
+                        backgroundColor: "#fafafa",
+                    }} />
                 <ToastContainer
                     transition={Slide}
                     toastStyle={{

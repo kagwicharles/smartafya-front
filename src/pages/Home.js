@@ -46,7 +46,7 @@ export default function Home() {
                         </Stack>
                     </Grid>
                     <Grid item xs={6}>
-                        <img className='fill-height w-100'
+                        <img className='fill-height'
                             src={MediLogo} alt="Medi Logo" />
                     </Grid>
                 </Grid>
