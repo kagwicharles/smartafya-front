@@ -1,4 +1,5 @@
 import { Grid, Button, Stack, Box, Typography, Slide } from '@mui/material';
+import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
 
 import '../static/css/home.css'
