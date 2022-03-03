@@ -73,8 +73,10 @@ export default function Contact() {
                         <h1
                             style={{ marginTop: '50px' }}
                             align="left">Get In Touch</h1>
-                        <form id="contact-form"
+                        <Stack id="contact-form"
                             className="contact-form mt-4 d-flex flex-column mb-3"
+                            component="form"
+                            spacing={2}
                             onSubmit={handleSubmit}>
                             <TextField
                                 id="user_name"
@@ -90,9 +92,6 @@ export default function Contact() {
                                 }}
                                 onChange={handleChange}
                             />
-
-                            <br />
-
                             <TextField
                                 id="subject"
                                 name="subject"
@@ -107,9 +106,6 @@ export default function Contact() {
                                 }}
                                 onChange={handleChange}
                             />
-
-                            <br />
-
                             <TextField
                                 id="message"
                                 name="message"
@@ -126,16 +122,13 @@ export default function Contact() {
                                 }}
                                 onChange={handleChange}
                             />
-
-                            <br />
-
                             <Button
                                 type="submit"
                                 variant="contained"
                                 disableElevation={true}>
                                 Send Message
                             </Button>
-                        </form>
+                        </Stack>
                     </Grid>
                 </Grow>
             </Grid>
