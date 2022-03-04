@@ -1,15 +1,27 @@
 import { Grid, Button, Stack, Box, Typography, Slide } from '@mui/material';
-import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import DemoDialog from '../components/DemoDialog';
 
 import '../static/css/home.css'
 import MediLogo from '../static/img/medical1.svg'
 
 export default function Home() {
     const navigate = useNavigate()
+    const [open, setOpen] = useState(false);
+
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <div>
+            <DemoDialog open={open} onClose={handleClose} />
             <Slide direction='up' in={true} timeout={1000}>
                 <Grid container
                     className='container fill-height align-items-center'>
@@ -28,6 +40,7 @@ export default function Home() {
                                 <Button
                                     variant="contained"
                                     color='success'
+                                    onClick={handleClickOpen}
                                     disableElevation={true}>
                                     Live Demo
                                 </Button>

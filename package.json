@@ -20,6 +20,7 @@
     "css-ripple-effect": "^1.0.5",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.6.6",
+    "jquery": "^3.6.0",
     "mdb-react-ui-kit": "^2.3.0",
     "react": "^17.0.2",
     "react-blur": "^1.1.1",
