@@ -12,6 +12,10 @@ import $ from 'jquery'
 
 export default function DemoDialog(props) {
 
+    const closeDialog = () => {
+        props.onClose()
+    }
+
     const handleImageUpload = (event) => {
         $('.image-section').show();
         if (event.target.files && event.target.files[0]) {
@@ -61,7 +65,7 @@ export default function DemoDialog(props) {
                     </Stack>
                 </DialogContent>
                 <DialogActions>
-                    <Button>Cancel</Button>
+                    <Button onClick={closeDialog}>Cancel</Button>
                     <Button>Diagnose</Button>
                 </DialogActions>
             </Dialog>

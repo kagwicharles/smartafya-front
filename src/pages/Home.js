@@ -21,7 +21,7 @@ export default function Home() {
 
     return (
         <div>
-            <DemoDialog open={open} onClose={handleClose} />
+            <DemoDialog open={open} onClose={handleClose}/>
             <Slide direction='up' in={true} timeout={1000}>
                 <Grid container
                     className='container fill-height align-items-center'>

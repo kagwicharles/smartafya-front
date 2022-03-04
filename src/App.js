@@ -19,6 +19,10 @@ export default function App() {
 
   const theme = createTheme({
     typography: {
+      button: {
+        textTransform: "none",
+        fontSize: 16
+      }
     },
   });
 
