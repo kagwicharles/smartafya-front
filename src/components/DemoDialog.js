@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import {
     Button, Dialog,
     DialogActions, DialogContent, DialogContentText,
@@ -12,13 +12,15 @@ import $ from 'jquery'
 
 export default function DemoDialog(props) {
 
-    useEffect(() => {
-
-    });
-
-    const handleImageUpload = (input) => {
+    const handleImageUpload = (event) => {
         $('.image-section').show();
-        $('#imagePreview').css('background-image', 'url("../static/img/check.jpg")');
+        if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#imgPreview').css('background-image', 'url(' + e.target.result + ')');
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
     }
 
     return (
@@ -33,11 +35,10 @@ export default function DemoDialog(props) {
                     <Stack spacing={1} className="pt-2">
                         <SelectItem />
                         <form id="upload-file" method="post"
-                            enctype="multipart/form-data">
+                            encType="multipart/form-data">
                             <label htmlFor="imageUpload" className="upload-label">
                                 Select Image
-                            </label>
-                            <br />
+                            </label>&nbsp;
                             <input type="file" name="file"
                                 id="imageUpload"
                                 onChange={handleImageUpload}
@@ -45,10 +46,11 @@ export default function DemoDialog(props) {
                         </form>
 
                         <div className="image-section" style={{ display: "none" }}>
-                            <div class="img-preview">
-                                <div id="imagePreview">
-                                </div>
+                            <div className="img-preview">
+                                <div id="imgPreview" />
                             </div>
+                            <h4 id="diagnosisResults" style={{ display: "none" }}
+                                className='mt-4'>result</h4>
                         </div>
 
                         <div className="loader" style={{ display: "none" }}></div>
