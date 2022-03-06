@@ -50,7 +50,6 @@ export default function DemoDialog(props) {
         $("#diagnosisResults").hide()
         $(".loader").show()
         performDiagnosis(file)
-        setFile(null)
     }
 
     return (
