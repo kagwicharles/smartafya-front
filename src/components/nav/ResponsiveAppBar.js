@@ -54,7 +54,14 @@ const ResponsiveAppBar = () => {
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                            sx={{
+                                mr: 2,
+                                display: {
+                                    xs: 'none',
+                                    md: 'flex',
+                                },
+                                fontSize: 24
+                            }}
                         >
                             <NavLink to='/' underline='none' className='nav-link text-light'>
                                 Smart Afya

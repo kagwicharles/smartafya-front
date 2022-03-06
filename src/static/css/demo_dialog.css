@@ -1,7 +1,6 @@
 .image-section {
     display: flex;
     flex-direction: row;
-    padding: 10px;
 }
 
 .img-preview {
@@ -47,4 +46,14 @@
 
 #diagnosisResults {
     margin-left: 1em;
+}
+
+.dropdown {
+    cursor: pointer;
+}
+
+#diseaseDropdown {
+    padding: 15px;
+    width: 100%;
+    cursor: pointer;
 }

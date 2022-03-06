@@ -6,14 +6,14 @@ const timeoutViews = () => {
     $('#diagnosisResults').fadeIn(600);
 }
 
-export function performDiagnosis(file) {
+export function performDiagnosis(file, disease) {
     const formData = new FormData();
     formData.append('file', file);
     console.log('Sending to server...', formData.get('file'));
     $('.loader').show();
     const message = document.getElementById('diagnosisResults');
 
-    fetch('http://localhost:5000/predict', {
+    fetch(`http://localhost:5000/predict?disease=${disease}`, {
         method: 'POST',
         body: formData
     })
@@ -21,12 +21,13 @@ export function performDiagnosis(file) {
         .then((result) => {
             message.style.color = '#EBF9F1';
             const diagnosis = result.results;
-            var diagnosisMsg = `This is a ${diagnosis} case`;
+            var diagnosisMsg = "";
             message.innerHTML = diagnosisMsg;
             if (diagnosis === 'Normal') {
+                diagnosisMsg = `${diagnosis}`
                 message.style.color = '#00AB55';
-                console.log('Success:', result);
             } else if (diagnosis === 'Infected') {
+                diagnosisMsg = `${diagnosis}!`
                 message.style.color = 'red';
             } else {
                 diagnosisMsg = `${diagnosis}`
