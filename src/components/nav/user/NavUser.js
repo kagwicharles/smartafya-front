@@ -1,5 +1,5 @@
 import { Box, Button, Grow, Slide } from "@mui/material"
-import AccountPopover from "../auth/AccountPopover"
+import AccountPopover from "../../auth/AccountPopover"
 
 const LoggedOut = () => {
     return (

@@ -4,7 +4,6 @@ import {
     DialogActions, DialogContent, DialogContentText,
     DialogTitle, Stack
 } from '@mui/material';
-import { Icon } from '@iconify/react'
 
 import { performDiagnosis } from '../services/DiagnosisService'
 
@@ -74,7 +73,6 @@ export default function DemoDialog(props) {
             <Dialog open={props.open} onClose={props.onClose}>
                 <DialogTitle variant="h5">
                     Perform diagnosis &nbsp;
-                    <Icon width='40' height='40' color="#353c47" icon="maki:doctor" />
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>

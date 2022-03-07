@@ -8,7 +8,7 @@ import Contact from './pages/Contact'
 import Applications from './pages/Applications';
 
 import Footer from './components/Footer'
-import ResponsiveAppBar from './components/nav/ResponsiveAppBar'
+import NavAppBar from './components/nav/NavAppBar'
 import CreateApplication from './pages/CreateApplication';
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
@@ -30,7 +30,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <AuthProvider>
-          <ResponsiveAppBar />
+          <NavAppBar />
           <Routes>
             <Route exact path="/" element={< Home />} />
             <Route exact path="/docs" element={< Docs />} />
