@@ -1,0 +1,26 @@
+body {
+  background-color: "#fafafa";
+  font-family: "NotoSansRegular";
+  font-size: 15px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'NotoSansRegular';
+  src: local('NotoSansRegular'), url("fonts/Noto_Sans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'NotoSansBold';
+  src: local('NotoSansBold'), url("fonts/Noto_Sans/NotoSans-Bold.ttf") format('truetype');
+}
+
+#btnContainer .active {
+  border-bottom: 3px solid #d9e2ef;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}

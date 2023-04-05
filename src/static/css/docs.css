@@ -1,0 +1,24 @@
+.api-cont {
+    height: calc(100vh - 55px);
+}
+
+.code-snippet {
+    max-width: 300px;
+}
+
+.scroll-effect {
+    max-height: calc(100vh - 70px);
+    overflow: auto;
+}
+
+
+code,
+pre {
+    font-family: 'Source Code Pro', monospace;
+    color: greenyellow !important;
+}
+
+.code-snippet {
+    background-color: #041920;
+    font-weight: bold;
+}

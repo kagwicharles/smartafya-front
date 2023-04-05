@@ -1,0 +1,39 @@
+.nav-link {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.ripple:hover {
+    font-weight: bold;
+    border-bottom: 3px solid #D9E2EF;
+    transition: all ease-in-out .2s;
+}
+
+.header {
+    @media (max-width: 900px): {
+        paddingLeft: 0,
+    }
+}
+
+.drawerContainer {
+    padding: "20px 30px",
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-btn {
+    display: flex;
+}
+
+.app-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-logo {
+    text-decoration: none;
+}
