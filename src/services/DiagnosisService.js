@@ -15,7 +15,8 @@ export function performDiagnosis(file, disease, url) {
 
     fetch(`${url}/predict?disease=${disease}&user-email=ckagwi8@gmail.com&api-key=wXcxQIQNoB6UNAHYeokEz`, {
         method: 'POST',
-        body: formData
+        body: formData,
+        mode: 'no-cors'
     })
         .then((response) => response.json())
         .then((result) => {
